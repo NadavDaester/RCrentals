@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-  <h1>adi push </h1>
+  <h1>adi push now dev brunch </h1>
   <h1>Maor push </h1>
   </div>
 </template>
