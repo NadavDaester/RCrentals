@@ -1,0 +1,154 @@
+{
+    "car": [
+        {
+            "_id": "c101",
+            "owner": {
+                "_id": "u101",
+                "fullName": "Maor Bason",
+                "imgUrl": "url"
+            },
+            "location": {
+                "city": "tel aviv",
+                "lat": 54354,
+                "lng": 23423
+            },
+            "tags": [
+                "Sport",
+                "vintage"
+            ],
+            "reviews": [
+                {
+                    "id": "r101",
+                    "txt": "beautiful car",
+                    "rating": 3,
+                    "createdAt": 12543543,
+                    "byUser": "minimalUser"
+                },
+                {
+                    "id": "r102",
+                    "txt": " i had so much fun with that car ",
+                    "rating": 5,
+                    "createdAt": 14324323,
+                    "byUser": "minimalUser"
+                }
+            ],
+            "desc": "the car has sunroof reach to 180 k/mh",
+            "features": {
+                "seatsCount": 4,
+                "doorsCount": 4
+            },
+            "price": 423,
+            "condition": "new",
+            "model": "2020",
+            "vendor": {
+                "company": "audi",
+                "series": "s3"
+            },
+            "discount": {
+                "discountRate": 15,
+                "discountEnd": "1000*60*60*24"
+            },
+            "primaryImgUrl": "url",
+            "imgUrls": [
+                "url",
+                "url2",
+                "url3"
+            ]
+        },
+        {
+            "_id": "c102",
+            "owner": {
+                "_id": "u103",
+                "fullName": "adi peled",
+                "imgUrl": "url",
+                "location": {
+                    "city": "kiryat malachi",
+                    "lat": 342343,
+                    "lng": 45343
+                }
+            },
+            "tags": [
+                "luxury",
+                "vintage"
+            ],
+            "reviews": [
+                {
+                    "id": "r104",
+                    "txt": "sexy car ",
+                    "rating": 3,
+                    "createdAt": 42343223,
+                    "byUser": "minimalUser"
+                },
+                {
+                    "id": "r105",
+                    "txt": " i had so much fun with that car ",
+                    "rating": 5,
+                    "createdAt": 4324324,
+                    "byUser": "minimalUser"
+                }
+            ],
+            "desc": "the car has comfortable seats , big wheels",
+            "features": {
+                "seatsCount": 4,
+                "doorsCount": 4
+            },
+            "price": 765,
+            "condition": "veteran",
+            "model": "2015",
+            "vendor": {
+                "company": "mazarati",
+                "series": "500"
+            },
+            "discount": {
+                "discountRate": 28,
+                "discountEnd": "1000*60*60*12"
+            },
+            "primaryImgUrl": "url",
+            "imgUrls": [
+                "url",
+                "url2",
+                "url3"
+            ]
+        }
+    ],
+    "order": [
+        {
+            "_id": "o101",
+            "at": 1122,
+            "by": "miniUser",
+            "car": "miniCar",
+            "startDate": 243243242,
+            "endDate": 1432432430,
+            "totalPrice": 2342
+        },
+        {
+            "_id": "o102",
+            "at": 43243,
+            "by": "miniUser",
+            "car": "miniCar",
+            "startDate": 3543234,
+            "endDate": 45343,
+            "totalPrice": 645
+        }
+    ],
+    "user": [
+        {
+            "id": "u101",
+            "fullName": "Maor Bason",
+            "password": "12345",
+            "email": "maor456@walla.com",
+            "isAdmin": true,
+            "imgUrl": "url",
+            "createdAt": 12312312312
+        },
+        {
+            "id": "u102",
+            "fullName": "adi peled",
+            "password": "54321",
+            "email": "adi123@gmail.com",
+            "isAdmin": true,
+            "imgUrl": "url",
+            "createdAt": 12312312312
+        }
+    ]
+}
