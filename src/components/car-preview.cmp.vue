@@ -2,19 +2,23 @@
 
 <template>
   <section>
-    <div class="car-preview flex">
-      <h3>car owner: {{car.owner.fullName}}</h3>
-      <h3>Price: {{car.price}}$</h3>
-      <h3> model:  {{car.model}}</h3>
-      <h3>Type: {{car.type}}</h3>
-      <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
-      <div class="actions flex">
-        <router-link :to="'/car/details/'+car._id">details</router-link>
+    <div class="car-preview">
 
-     <button  @click.stop="removeCar(car._id)"> remove    </button>
-
-        <button title="Edit car" @click.stop="edit">edit</button>
+      <div class="card-img">
+        <button class="like-btn"> 🤍 </button>
+        <div class="price"> ${{car.price}}/day </div>
+        <router-link :to="'/car/details/'+car._id">
+          <img src="@/assets/hero2.jpg" />
+        </router-link>
       </div>
+
+      <div class="details flex">
+        <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
+         <div>  {{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}  </div> 
+        <button>book instantly</button>
+      </div>
+      <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
+      <div class="actions flex"></div>
     </div>
   </section>
 </template>
@@ -30,14 +34,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    removeCar(id) {
-      this.$emit("removeCar", id);
-    },
-    edit() {
-      this.$router.push("car/edit/" + this.car._id);
-    }
-  },
+  methods: {},
   computed: {}
 };
 </script>
