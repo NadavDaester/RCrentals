@@ -11,7 +11,9 @@
     text-align: center;
     font-size: 35px;
 }
-
+.space-between{
+    justify-content: space-between;
+}
 // media-helpers
 .square-ratio {
     @include aspect-ratio(1, 1);
