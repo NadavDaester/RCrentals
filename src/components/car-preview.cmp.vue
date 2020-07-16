@@ -13,7 +13,7 @@
       </div>
 
       <div class="details flex">
-        <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
+        <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
          <div>  {{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}  </div> 
         <button>book instantly</button>
       </div>

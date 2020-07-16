@@ -1,9 +1,8 @@
-
 const { default: axios } = require("axios")
 
-const BASE_URL = (process.env.NODE_ENV !== 'development')
-    ? '/api/car'
-    : '//localhost:3000/api/car';
+const BASE_URL = (process.env.NODE_ENV !== 'development') ?
+    '/api/car' :
+    '//localhost:3000/api/car';
 
 export const carService = {
     query,
@@ -40,4 +39,4 @@ function _add(car) {
     console.log('add');
     return axios.post(`http://localhost:3000/car/`, car)
         .then(res => res.data)
-}   
+}
