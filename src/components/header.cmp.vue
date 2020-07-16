@@ -8,7 +8,7 @@
       <p>List your car-</p>
       <p>about</p>
       <p>Log in</p>
-      <p>Sign up</p>
+      <router-link to="/signUp">signUp</router-link>
       <p>user img</p>
     </div>
   </section>
