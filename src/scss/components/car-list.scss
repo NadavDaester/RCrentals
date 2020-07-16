@@ -1,0 +1,23 @@
+.car-list {
+    margin: 0 auto;
+}
+
+.cards-container {
+    width: 100%;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px
+}
+
+.car-card {
+    width: 100%;
+}
+
+// .color-container {
+//     position: relative;
+// }
+// .color-container img {
+//     position: absolute;
+//     width: 35px;
+//     height: 35px;
+// }

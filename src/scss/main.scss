@@ -11,10 +11,13 @@
 @import "basics/_buttons.scss";
 // Components
 @import './components/app-header.scss';
+@import './components/car-list.scss';
+@import './components/car-preview.scss';
 //views
 @import './views/about.scss';
 @import './views/home.scss';
 @import './views/signup.scss';
+
 * {
     box-sizing: border-box;
 }

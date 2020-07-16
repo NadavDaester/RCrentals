@@ -1,25 +1,32 @@
 .app-header {
     justify-content: space-between;
     align-items: center;
+    border: 1px solid rgba(181, 180, 186, .25);
 }
 
 .header-logo-img {
     z-index: 0;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
 .header-logo-txt {
     z-index: 1;
 }
 
-.logo-name{
+.logo-name {
     align-self: center;
 }
 
-.nav{
-             width: 40%;
-             justify-content: space-around;
-             margin:0px;
-               height: 50px;
-                text-decoration: none;
-        
+.nav {
+    width: 40%;
+    justify-content: space-around;
+    margin: 0px;
+    height: 50px;
+    text-decoration: none;
 }
