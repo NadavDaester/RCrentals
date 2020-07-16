@@ -7,8 +7,8 @@
     <div class="flex nav">
       <p>List your car-</p>
       <p>about</p>
-      <p>Log in</p>
-      <router-link to="/signUp">signUp</router-link>
+      <router-link to="/login">Log In</router-link>
+      <router-link to="/signUp">Sign Up</router-link>
       <p>user img</p>
     </div>
   </section>
