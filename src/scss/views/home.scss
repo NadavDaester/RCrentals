@@ -1,8 +1,28 @@
-.bg-img {
-    background-image: url('/frontend/src/assets/hero2.jpg');
+.bgc-img {
+    background-image: url('~@/assets/hero2.jpg');
+
     background-position: 0 0;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 700px;
     background-position-x: center;
     background-position-y: center;
+}
+
+.text-img{
+    
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+    text-align: center;
+    letter-spacing: -1px;
+    line-height: 90px;
+    text-transform: none;
+    h1{
+        font-size: 70px;
+    }
+    h3{
+        font-size: 22px;
+
+    }
+
 }

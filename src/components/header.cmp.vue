@@ -1,26 +1,24 @@
 <template>
-  <section class="app-header flex" >
-
-
-      <router-link to="/"> <img class="header-logo-img" src="@/assets/logo.png"> RCRentals</router-link>
-      <div class="flex">
-        <router-link to="/about">About</router-link>  
-          <p>list your car</p>
-          <p>learn more</p>
-          <p>log in</p>
-          <p>sign up</p>
-          <p>user img || default img</p>
-      </div>
+  <section class="app-header flex">
+    <router-link class="flex" to="/">
+      <img class="header-logo-img" src="@/assets/logo.png" />
+      <span class="logo-name">RCRentals</span>
+    </router-link>
+    <div class="flex nav">
+      <p>List your car</p>
+      <p>about</p>
+      <p>Log in</p>
+      <p>Sign up</p>
+      <p>user img</p>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
-name:'appHeader',
-
-}
+  name: "appHeader"
+};
 </script>
 
 <style>
-
 </style>
