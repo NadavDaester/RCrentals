@@ -1,21 +1,16 @@
-
 // Setup
 @import 'setup//variables.scss';
 @import "setup/_functions.scss";
 @import "setup/_mixin.scss";
 @import "./setup/_typography.scss";
-
 // Basics
 @import "basics/_helpers.scss";
 @import "basics/_layout.scss";
 @import "basics/_base.scss";
 @import "basics/_links.scss";
 @import "basics/_buttons.scss";
-
 // Components
-
+@import './components/app-header.scss';
 //views
-
 @import './views/about.scss';
-
-
+@import './views/home.scss';

@@ -1,29 +1,26 @@
-
-
-.grid{
+.grid {
     display: grid;
 }
 
-
-.flex{
+//flex-helper
+.flex {
     display: flex;
 }
 
-.title{
-    text-align: center; 
+.title {
+    text-align: center;
     font-size: 35px;
- }
- 
- 
-
+}
 
 // media-helpers
 .square-ratio {
     @include aspect-ratio(1, 1);
 }
+
 .video-ratio {
     @include aspect-ratio(16, 9);
 }
+
 .poster-ratio {
     @include aspect-ratio(1, 1.5);
 }
