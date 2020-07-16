@@ -1,13 +1,21 @@
+
+
+
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div >
+      <app-header></app-header>
   </div>
 </template>
+<script>
+  import appHeader from './components/header.cmp.vue'
+export default {
 
+
+  components :{
+    appHeader
+  }
+}
+</script>>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
