@@ -1,43 +1,88 @@
 .bgc-img {
     background-image: url('~@/assets/hero2.jpg');
-
+    background-size:cover;
     background-position: 0 0;
     background-repeat: no-repeat;
-    height: 700px;
+    height: 500px;
     background-position-x: center;
-    background-position-y: center;
+    background-position-y: -180px;
 }
 
 .text-img{
     
-        margin: auto;
-        width: 60%;
-        padding: 10px;
+    margin: auto;
+    color: lightyellow;
+    padding: 80px;
     text-align: center;
-    letter-spacing: -1px;
-    line-height: 90px;
     text-transform: none;
     h1{
         font-size: 70px;
+        margin: 0 auto;
+        margin-top: 20px;
     }
     h3{
-        font-size: 22px;
-
+        font-size: 25px;
+        margin: 0;
+        margin-bottom: 15px;
     }
     
 }
 .browse-category{   
     text-align: center; 
     img{
-        border-radius: 20px 0 0 ;
+        border-radius: 10px 0 0 ;
     }
     div{
         box-shadow: 2px 7px 5px 0px rgba(168,168,168,1);
-        border-radius: 20px;
+        border-radius: 10px;
+        transition: box-shadow 0.3s
     }
-    div:hover{
+    div:hover{ 
         box-shadow: 2px 10px 5px 0px rgba(168,168,168,1);
         cursor: pointer;
     }
+    div:hover h3{
+        color: blue;
+    }
 
+}
+.might-like-category{
+    div{
+        text-align: left;
+        transition: opacity 0.3s
+    }
+    div:hover{
+        opacity: 0.9;
+        cursor: pointer;
+    }
+    h3{
+        margin: 0 auto;
+    }
+}
+.about-info{
+    div{
+        margin: 0;
+        color: #121214;
+        margin-bottom: 12px;
+        font-size: 16px;
+        letter-spacing: 0;
+        width: 300px;
+    }
+}
+.book-bar{
+    height: 40px;
+    background-color: white;
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    border-radius: 15px;
+
+    input{
+        line-height:  2.8;
+        border: 0;
+        margin-left: 20px;
+    }
+    input:focus{
+        outline: none;
+    }
 }
