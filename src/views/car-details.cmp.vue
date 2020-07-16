@@ -10,22 +10,36 @@
         <img class="small-img" src="@/assets/hero3.jpg" />
         <img class="small-img" src="@/assets/hero3.jpg" />
       </div>
-
-      <div class="details">
-        <p>The Car</p>
-        <div>
-          <h1>{{currCar.vendor.company}} {{currCar.vendor.series}} {{currCar.model}}</h1>
-          <div>{{currCar.reviews[0].rating}}⭐ (50) {{currCar.owner.fullName}}</div>
-          <div class="features">
-            <span>
-              <img src="@/assets/img/seat.png" />
-              {{currCar.features.seatsCount}}
-            </span>
-            <span>
-              <img src="@/assets/img/door.png" />
-              {{currCar.features.doorsCount}}
-            </span>
+      <div class="car-info flex">
+        <div class="details">
+          <div>
+            <h1>{{currCar.vendor.company}} {{currCar.vendor.series}} {{currCar.model}}</h1>
+            <div>{{currCar.reviews[0].rating}}⭐ (50) {{currCar.owner.fullName}}</div>
+            <div class="features grid">
+              <span>
+                <img src="@/assets/img/seat.png" />
+                {{currCar.features.seatsCount}}
+              </span>
+              <span>
+                <img src="@/assets/img/door.png" />
+                {{currCar.features.doorsCount}}
+              </span>
+              <span>
+                <img src="@/assets/img/gas.png" />
+                gas
+              </span>
+              <span>
+                <img src="@/assets/img/kpl.png" />
+                kpl: {{currCar.features.kpl}}
+              </span>
+            </div>
           </div>
+        </div>
+
+        <div class="payment-details flex">
+          <h3>price: $ {{currCar.price}} /day</h3>
+          <span>rent start: 12/07/20</span>
+          <span>rent end: 21/08/2020</span>
         </div>
         {{currCar.owner.fulName}}
       </div>

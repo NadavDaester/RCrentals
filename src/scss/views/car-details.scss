@@ -9,6 +9,16 @@
         gap: 10px;
     }
     
+    .features {
+        width: 50%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        img {
+            width: rem(30px);
+            height: rem(30px);
+        }
+    }
+    
     .big-img {
         grid-row: span 2;
         grid-column: span 2;
@@ -19,4 +29,10 @@
     .small-img {
         width: rem(200px);
         height: rem(200px);
+    }
+
+
+
+    .payment-details{
+        flex-direction: column;
     }
