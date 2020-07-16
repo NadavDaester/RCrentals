@@ -38,12 +38,6 @@ export const carStore = {
                     return cars
                 })
         },
-        getCar({ commit }, { id }) {
-            return carService.getById(id)
-                .then(car => {
-                    commit({ type: 'setCar', car })
-                })
-        },
         async removeCar({ commit }, { id }) {
             await carService.remove(id)
             commit({ type: 'removeCar', id })

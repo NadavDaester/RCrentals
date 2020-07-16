@@ -1,0 +1,22 @@
+    .car-container {
+        flex-direction: column;
+    }
+    
+    .imgs-container {
+        grid-template-columns: repeat(4, rem(200px));
+        grid-template-rows: rem(200px) rem(200px);
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .big-img {
+        grid-row: span 2;
+        grid-column: span 2;
+        width: rem(410px);
+        height: rem(410px);
+    }
+    
+    .small-img {
+        width: rem(200px);
+        height: rem(200px);
+    }

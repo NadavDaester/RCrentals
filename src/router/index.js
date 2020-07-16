@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import signUp from '../views/signup.vue';
 import logIn from '../views/login.vue';
 import browseCars from '../views/browse-cars.cmp.vue'
+import carDetails from '../views/car-details.cmp.vue';
 Vue.use(VueRouter)
 
 const routes = [{
@@ -34,6 +35,11 @@ const routes = [{
         path: '/car',
         name: 'browse cars',
         component: browseCars
+    },
+    {
+        path: '/car/details/:id',
+        name: 'car-details',
+        component: carDetails
     },
 ]
 
