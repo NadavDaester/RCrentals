@@ -44,12 +44,12 @@ export const carStore = {
         },
         async saveCar({ commit }, { car }) {
             const type = (car._id) ? 'updateCar' : 'addCar';
-            const savedCar = await carService.saveToy(car)
+            const savedCar = await carService.saveCar(car)
             commit({ type, savedCar })
         },
         async filterBy({ commit }, { filterBy }) {
             const cars = await carService.query(filterBy)
-            commit({ type: 'setToys', cars })
+            commit({ type: 'setCars', cars })
         }
     },
 
