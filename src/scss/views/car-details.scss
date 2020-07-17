@@ -21,6 +21,10 @@
             height: rem(30px);
             margin-right: 13px;
         }
+        span{
+            height: 75px;
+        }
+
        
     }
     
@@ -44,7 +48,8 @@
 }
 
     .payment-details{
-        
+        justify-content: space-around;
+        height: 400px;
     padding: 15px;
         width: 50%;
         flex-direction: column;
@@ -69,3 +74,15 @@
     .free-cancellation{
 margin-top: 20px;
     }
+
+.review{
+    padding: 15px;
+    img{
+    width: 10%;
+}
+
+    .review-details{
+        width: 40%;
+        flex-direction: column;
+    }
+}
