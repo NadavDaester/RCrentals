@@ -75,7 +75,7 @@
           <div class="flex booking-button">
             <!-- change fake price !! -->
             <p>Total Price : {{fakePrice}}  <span>Only!</span> </p>
-          <button>Book !</button>
+          <button>Book Now !</button>
           </div>
       </form>
     </div>
@@ -117,6 +117,7 @@ export default {
       this.email='';
       this.fullName='';
       this.phoneNumber='';
+      this.$store.dispatch({type: 'bookCar', orderCred: orderCred})
     }
   },
   computed: {
