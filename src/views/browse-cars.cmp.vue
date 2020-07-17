@@ -1,6 +1,7 @@
 <template>
   <section>
     <h1 class="title">Cars</h1>
+    <car-filter @filter="setFilter"></car-filter>
 
     <car-list @removeCar="removeCar" :cars="cars"></car-list>
   </section>
@@ -10,26 +11,25 @@
 export default {
   name: "browse-cars",
   created() {
-      this.$store.dispatch({ type: "loadCars" });
-      console.log('car');
+    this.$store.dispatch({ type: "loadCars" });
+    console.log("car");
   },
   data() {
-    return {
-        
-    };
+    return {};
   },
   methods: {
     removeCar(id) {
       this.$store.dispatch({ type: "removeCar", id });
     },
-    
-   
+    setFilter(filterBy) {
+      this.$store.dispatch({ type: "loadCars", filterBy });
+      // this.$store.dispatch({ type: 'loadCars' })
+    }
   },
   computed: {
     cars() {
       return this.$store.getters.cars;
-    },
-  
+    }
   },
   components: {
     carList,

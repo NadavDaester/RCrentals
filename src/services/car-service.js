@@ -1,8 +1,6 @@
 const { default: axios } = require("axios")
+import httpService from './http-service'
 
-const BASE_URL = (process.env.NODE_ENV !== 'development') ?
-    '/api/car' :
-    '//localhost:3000/api/car';
 
 export const carService = {
     query,
@@ -11,32 +9,37 @@ export const carService = {
     saveCar
 }
 
-function query() {
-    console.log('query');
-    return axios.get(`http://localhost:3000/car`)
-        .then(res => res.data)
+
+// async function query(filterBy='') {
+//     return await httpService.get(`car`)
+// }
+
+async function query(filterBy = "") {
+    if (!filterBy) {
+        return await httpService.get(`car`)
+    } else {
+        const { price, type, location, available, model } = filterBy;
+        return await httpService.get('car' + `?price=${price}&type=${type}&location=${location}&model=${model}&=${available}`)
+    }
+}
+async function getById(id) {
+    return await httpService.get(`car/${id}`)
 }
 
-function getById(id) {
-    return axios.get(`http://localhost:3000/car/${id}`)
-        .then(res => res.data)
-}
-
-function remove(id) {
-    return axios.delete(`http://localhost:3000/car/${id}`)
+async function remove(id) {
+    return await httpService.delete(`car/${id}`)
 }
 
 function saveCar(car) {
     return (car._id) ? _update(car) : _add(car)
 }
 
-function _update(car) {
-    return axios.put(`http://localhost:3000/car/${car._id}`, car)
+async function _update(car) {
+    return await httpService.put(`car/${car._id}`, car)
         .then(res => res.data)
 }
 
-function _add(car) {
-    console.log('add');
-    return axios.post(`http://localhost:3000/car/`, car)
-        .then(res => res.data)
+async function _add(car) {
+    return await httpService.post(`car/`, car)
+
 }

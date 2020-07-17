@@ -29,26 +29,31 @@ export const carStore = {
         }
     },
     actions: {
-        async loadCars({ commit, state }) {
-
-          var cars=  await  carService.query()
-            commit({ type: 'setCars', cars })
-            return cars
+        async loadCars({ commit }, { filterBy }) {
+            console.log(filterBy);
+            try {
+                var cars = await carService.query(filterBy)
+                commit({ type: 'setCars', cars })
+                return cars
+            } catch (err) {
+                console.log(err);
+            }
 
         },
         async removeCar({ commit }, { id }) {
-            await carService.remove(id)
-            commit({ type: 'removeCar', id })
+            try {
+                await carService.remove(id)
+                commit({ type: 'removeCar', id })
+            } catch (err) {
+                console.log(err);
+            }
         },
         async saveCar({ commit }, { car }) {
             const type = (car._id) ? 'updateCar' : 'addCar';
             const savedCar = await carService.saveCar(car)
             commit({ type, savedCar })
         },
-        async filterBy({ commit }, { filterBy }) {
-            const cars = await carService.query(filterBy)
-            commit({ type: 'setCars', cars })
-        }
+
     },
 
 

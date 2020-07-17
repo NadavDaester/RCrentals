@@ -40,7 +40,7 @@
             <h1>price: $ {{currCar.price}} /day</h1>
             <span>rent start: 12/07/20</span>
             <span>rent end: 21/08/2020</span>
-            <button>book</button>
+            <button @click="openBookModal" >book</button>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
@@ -62,6 +62,25 @@
         </div>
       </div>
     </div>
+
+    <div class="book-modal" v-if="bookModal">
+
+      <form @submit.prevent="onBook" class="flex booking">
+          <label>Full Name</label>
+          <input v-model="fullName"  class="signup-form-group" type="text">
+          <label>Phone Number</label>
+          <input type="tel" v-model="phoneNumber">
+          <label>Email</label>
+          <input v-model="email"  class="signup-form-group" type="email">
+          <div class="flex booking-button">
+            <!-- change fake price !! -->
+            <p>Total Price : {{fakePrice}}  <span>Only!</span> </p>
+          <button>Book Now !</button>
+          </div>
+      </form>
+    </div>
+
+
   </section>
 </template>
 
@@ -69,10 +88,15 @@
 import { carService } from "../services/car-service.js";
 
 export default {
-  name: "toy-details",
+  name: "car-details",
   data() {
     return {
-      currCar: null
+      currCar: null,
+      bookModal:false,
+      fakePrice:15,
+      email:'',
+      fullName:'',
+      phoneNumber:''
     };
   },
   created() {
@@ -80,9 +104,24 @@ export default {
     carService.getById(carId).then(currCar => (this.currCar = currCar));
   },
   methods: {
-    switchImg() {}
+    switchImg() {},
+    openBookModal(){
+      this.bookModal=!this.bookModal
+    },
+    onBook(){
+      var orderCred={
+                email: this.email,
+                fullName:this.fullName,
+                phoneNumber:this.phoneNumber
+                }
+      this.email='';
+      this.fullName='';
+      this.phoneNumber='';
+      this.$store.dispatch({type: 'bookCar', orderCred: orderCred})
+    }
   },
-  computed: {},
+  computed: {
+  },
   components: {}
 };
 </script>
