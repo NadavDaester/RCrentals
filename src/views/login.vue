@@ -2,7 +2,7 @@
   <section class="flex signup-section">
 <form @submit.prevent="onLogin" class="flex signup-form">
       <h2>Welcome Back</h2>
-  <label>Email</label>
+           <label>Email</label>
           <input v-model="email"  class="signup-form-group" type="email">
         <div>
           <label>Password</label>
