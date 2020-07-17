@@ -103,7 +103,7 @@
                 "discountEnd": "1000*60*60*12"
             },
             "primaryImgUrl":"maserati1",
-            "imgUrls": [
+            "imgUrls": [ 
                 "url",
                 "url2",
                 "url3"
