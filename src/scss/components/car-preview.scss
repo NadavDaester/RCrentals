@@ -1,7 +1,12 @@
 .car-preview {
-    img {
+    .front-img {
         width: 100%;
         height: 100%;
+    }
+    .details {
+        flex-direction: column;
+        padding: 5px;
+        
     }
 }
 
@@ -18,7 +23,11 @@
     padding: 5px;
 }
 
-.like-btn {
+.like {
+    margin:3px;
+    padding: 1px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 0;
     background-color: inherit;
@@ -26,11 +35,13 @@
     cursor: pointer;
 }
 
-.car-preview {
-    .details {
-        flex-direction: column;
-        padding: 5px;
+
+.under-img{
+   .details{
+       width: 59%;
+   }
         button {
+            align-self: center;
             width: 30%;
             letter-spacing: 0;
             line-height: 16px;
@@ -45,6 +56,12 @@
             margin-bottom: 0;
             font-size: 12px;
             cursor: pointer;
-        }
+            width: 120px;
+    height: 26px;
+    transition: .5s;
+    &:hover{
+        background-color:darken(#E7E7E8,15%) ;
     }
+        }
+    
 }
