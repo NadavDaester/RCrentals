@@ -29,14 +29,12 @@ export const carStore = {
         }
     },
     actions: {
-        loadCars({ commit, state }) {
-            console.log('car2');
-            console.log(carService);
-            return carService.query()
-                .then(cars => {
-                    commit({ type: 'setCars', cars })
-                    return cars
-                })
+        async loadCars({ commit, state }) {
+
+          var cars=  await  carService.query()
+            commit({ type: 'setCars', cars })
+            return cars
+
         },
         async removeCar({ commit }, { id }) {
             await carService.remove(id)
@@ -52,6 +50,7 @@ export const carStore = {
             commit({ type: 'setCars', cars })
         }
     },
+
 
 
 

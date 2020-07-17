@@ -244,7 +244,7 @@
             "fullName": "Maor Bason",
             "password": "12345",
             "email": "maor456@walla.com",
-            "isAdmin": true,
+            "isAdmin": false,
             "imgUrl": "url",
             "createdAt": 12312312312
         },
@@ -256,6 +256,15 @@
             "isAdmin": true,
             "imgUrl": "url",
             "createdAt": 12312312312
+        },
+        {
+            "id": "u103",
+            "fullName": "nadav daester",
+            "password": "66542",
+            "email": "nadav444@gmail.com",
+            "isAdmin": true,
+            "imgUrl": "url",
+            "createdAt": 1123423423
         }
     ]
 }
