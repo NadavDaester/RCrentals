@@ -33,7 +33,8 @@
             "desc": "the car has sunroof reach to 180 k/mh",
             "features": {
                 "seatsCount": 4,
-                "doorsCount": 4
+                "doorsCount": 4,
+                "kpl": 12
             },
             "price": 423,
             "condition": "new",
@@ -87,14 +88,15 @@
             "desc": "the car has comfortable seats , big wheels",
             "features": {
                 "seatsCount": 4,
-                "doorsCount": 4
+                "doorsCount": 4,
+                "kpl": 15
             },
             "price": 765,
             "condition": "veteran",
             "model": "2015",
             "vendor": {
                 "company": "mazarati",
-                "series": "500"
+                "series": "200"
             },
             "discount": {
                 "discountRate": 28,
@@ -141,11 +143,12 @@
             "desc": "big car for long trips, have plenaty of room to carry items",
             "features": {
                 "seatsCount": 6,
-                "doorsCount": 4
+                "doorsCount": 4,
+                "kpl": 22
             },
             "price": 323,
             "condition": "veteran",
-            "model": "2015",
+            "model": "2012",
             "vendor": {
                 "company": "mazarati",
                 "series": "500"
@@ -153,6 +156,61 @@
             "discount": {
                 "discountRate": 45,
                 "discountEnd": "1000*60*60*36"
+            },
+            "primaryImgUrl": "url",
+            "imgUrls": [
+                "url",
+                "url2",
+                "url3"
+            ]
+        },
+        {
+            "_id": "c104",
+            "owner": {
+                "_id": "u101",
+                "fullName": "Maor Bason",
+                "imgUrl": "url"
+            },
+            "location": {
+                "city": "tel aviv",
+                "lat": 54354,
+                "lng": 23423
+            },
+            "tags": [
+                "Sport",
+                "exotic"
+            ],
+            "reviews": [{
+                    "id": "r107",
+                    "txt": "Amazing Rental. Looking forward to doing this again!",
+                    "rating": 4,
+                    "createdAt": 324234,
+                    "byUser": "minimalUser"
+                },
+                {
+                    "id": "r108",
+                    "txt": " Awesome person to rent from. The instructions are very clear for pick up and drop off. Car was spotless and smelled good. Driving experience is amazing as well, beautiful sounding exhaust. A beautiful car that is a must rent! ",
+                    "rating": 4,
+                    "createdAt": 4342533,
+                    "byUser": "minimalUser"
+                }
+            ],
+            "desc": "the car has sunroof reach to 180 k/mh",
+            "features": {
+                "seatsCount": 4,
+                "doorsCount": 4,
+                "kpl": 14
+            },
+            "price": 222,
+            "condition": "new",
+            "model": "2019",
+            "vendor": {
+                "company": "mazda",
+                "series": "200"
+            },
+            "discount": {
+                "discountRate": 15,
+                "discountEnd": "1000*60*60*48"
             },
             "primaryImgUrl": "url",
             "imgUrls": [

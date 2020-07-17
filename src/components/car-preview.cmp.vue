@@ -3,18 +3,20 @@
 <template>
   <section>
     <div class="car-preview">
-
       <div class="card-img">
-        <button class="like-btn"> 🤍 </button>
-        <div class="price"> ${{car.price}}/day </div>
+       <img v-if="!isLiked"  @click="toggleLike" class="like" src="@/assets/img/empty-heart.png" >
+         <img v-else  @click="toggleLike"  class="like" src="@/assets/img/red-heart.png" >
+        <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
-          <img src="@/assets/hero2.jpg" />
+          <img class="front-img" src="@/assets/hero2.jpg" />
         </router-link>
       </div>
 
-      <div class="details flex">
-        <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
-         <div>  {{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}  </div> 
+      <div class="under-img flex">
+        <div class="details flex">
+          <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
+          <div>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</div>
+        </div>
         <button>book instantly</button>
       </div>
       <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
@@ -32,9 +34,15 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      isLiked: false
+    };
   },
-  methods: {},
+  methods: {
+    toggleLike() {
+      this.isLiked = !this.isLiked;
+    }
+  },
   computed: {}
 };
 </script>
