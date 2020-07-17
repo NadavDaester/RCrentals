@@ -11,12 +11,12 @@ export default {
     getLoggedinUser
 }
 
-function getById(userId) {
+ function getById(userId) {
     return httpService.get(`user/${userId}`)
 }
 
-function remove(userId) {
-    return httpService.delete(`user/${userId}`)
+ async  function remove(userId) {
+    return  httpService.delete(`user/${userId}`)
 }
 
 function update(user) {
