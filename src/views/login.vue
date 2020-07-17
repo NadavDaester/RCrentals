@@ -1,12 +1,17 @@
 <template>
   <section class="flex signup-section">
-<form  class="flex signup-form">
+<form @submit.prevent="onLogin" class="flex signup-form">
+      <h2>Welcome Back</h2>
   <label>Email</label>
           <input v-model="email"  class="signup-form-group" type="email">
         <div>
           <label>Password</label>
           <input v-model="password" class="signup-form-group" type="password">
-          <button class="signin-button">Sign Up</button>
+          <button class="signin-button">Log In</button>
+        </div>
+        <div class="no-account">
+            <p>Don’t have an account? </p>
+            <router-link to="/signup">Sign Up</router-link>
         </div>
 </form>
   </section>
@@ -15,6 +20,24 @@
 <script>
 export default {
 
+
+data(){
+    return{
+        password:'',
+        email:''
+    }
+},
+methods:{
+   async onLogin(){
+        var userCred={
+            password:this.password,
+            email:this.email
+        }
+        let user = await this.$store.dispatch({type: 'login', userCred: userCred})
+        // this.loadLoggedinUser()
+        // this.$router.push('/')
+    }
+}
 }
 </script>
 
