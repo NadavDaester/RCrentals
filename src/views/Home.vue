@@ -11,41 +11,32 @@
     </div>
     <h2>Browse by category</h2>
     <div class="browse-category flex space-around wrap">
-      <div>
-        <img src="../assets/hero3.jpg" height="150" />
-        <h3>Vintage</h3>
-      </div>
-      <div>
-        <img src="../assets/hero3.jpg" height="150" />
-        <h3>Luxury</h3>
-      </div>
-      <div>
-        <img src="../assets/hero3.jpg" height="150" />
-        <h3>Sports</h3>
-      </div>
+      <router-link to="/car">
+        <div>
+          <img src="../assets/hero3.jpg" height="150" />
+          <h3>Vintage</h3>
+        </div>
+      </router-link>
+      <router-link to="/car">
+        <div>
+          <img src="../assets/hero3.jpg" height="150" />
+          <h3>Luxury</h3>
+        </div>
+      </router-link>
+      <router-link to="/car">
+        <div>
+          <img src="../assets/hero3.jpg" height="150" />
+          <h3>Sports</h3>
+        </div>
+      </router-link>
     </div>
 
     <h2>you might like</h2>
     <div class="might-like-category flex space-around wrap">
-      <div>
+      <div v-for="car in cars" :car="car" :key="car._id">
         <img src="../assets/hero3.jpg" height="300" />
-        <h3>ASTON MARTIN VANTAGE 2019</h3>
-        <h4>4.84star Maor Bason</h4>
-      </div>
-      <div>
-        <img src="../assets/hero3.jpg" height="300" />
-        <h3>ASTON MARTIN VANTAGE 2019</h3>
-        <h4>4.84star Maor Bason</h4>
-      </div>
-      <div>
-        <img src="../assets/hero3.jpg" height="300" />
-        <h3>ASTON MARTIN VANTAGE 2019</h3>
-        <h4>4.84star Maor Bason</h4>
-      </div>
-      <div>
-        <img src="../assets/hero3.jpg" height="300" />
-        <h3>ASTON MARTIN VANTAGE 2019</h3>
-        <h4>4.84star Maor Bason</h4>
+        <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
+        <h4>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h4>
       </div>
     </div>
     <div>
@@ -68,11 +59,25 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import { carService } from "../services/car-service.js";
+import carPreview from "@/components/car-preview.cmp.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    HelloWorld,
+    carPreview
+  },
+  data() {
+    return {};
+  },
+  created() {
+    this.$store.dispatch({ type: "loadCars" });
+  },
+  computed: {
+    cars() {
+      return this.$store.getters.cars;
+    }
   }
 };
 </script>
