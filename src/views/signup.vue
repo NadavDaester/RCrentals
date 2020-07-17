@@ -48,6 +48,8 @@ methods:{
         createdAt:Date.now()
     }
     this.$store.dispatch({ type: "userSignUp", userCred:user});
+    this.$router.push('/')
+  
   }
 }
 }
