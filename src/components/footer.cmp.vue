@@ -1,7 +1,7 @@
 <template>
   <section class="app-footer">
 
-      <h1>im a footer</h1>
+      <li>All Liberty Mutual liability insurance in the US is offered through RCrentals Insurance Agency. Terms, conditions, and exclusions apply.</li>
       
   </section>
 </template>

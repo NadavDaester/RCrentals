@@ -1,3 +1,9 @@
+.home{
+    *{
+       font-family: Opensans; 
+    }
+}
+
 .bgc-img {
     background-image: url('~@/assets/hero5.jpg');
     background-size: cover;
@@ -5,12 +11,9 @@
     background-repeat: no-repeat;
     height: 500px;
     width: 100%;
-    // background-position-x: center;
-    // background-position-y: -180px;
 }
 
 .text-img{
-
     margin: auto;
     color: lightyellow;
     padding: 80px;
@@ -31,23 +34,36 @@
 .browse-category{   
     text-align: center; 
     img{
-        border-radius: 10px 0 0 ;
+        border-radius: 5px 0 0;
+        
     }
     div{
-        box-shadow: 2px 7px 5px 0px rgba(168,168,168,1);
-        border-radius: 10px;
-        transition: box-shadow 0.3s
+        box-shadow: 0px 10px 15px 0px rgba(222,215,222,1);
+        border-radius: 5px;
+        transition: box-shadow 0.3s;
+        // height: 380px;
     }
     div:hover{ 
-        box-shadow: 2px 10px 5px 0px rgba(168,168,168,1);
+        box-shadow: 0px 15px 15px 0px rgba(222,215,222,1);
         cursor: pointer;
     }
     div:hover h3{
         color: blue;
     }
+    h3{
+        font-size: 1.5rem;
+    }
 
 }
 .might-like-category{
+    display: grid;
+    // grid-template-columns: repeat(4 ,1fr);
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    // grid-template-rows: repeat(auto-fill,1fr);
+    // grid-template-rows: repeat(4,100px);
+    grid-row-gap: 15px;
+    grid-column-gap: 10px;
+
     div{
         text-align: center;
         transition: opacity 0.3s

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="home">
     <div class="bgc-img">
       <div class="text-img">
         <h1>Way better than a rental car</h1>
@@ -10,32 +10,32 @@
       </div>
     </div>
     <h2>Browse by category</h2>
-    <div class="browse-category flex space-around wrap">
-      <router-link to="/car">
-        <div>
-          <img src="../assets/hero3.jpg" height="150" />
+    <div class="browse-category flex wrap space-around">
+      <div>
+        <router-link class="col" to="/car">
+          <img src="../assets/hero3.jpg" height="180" />
           <h3>Vintage</h3>
-        </div>
-      </router-link>
-      <router-link to="/car">
-        <div>
-          <img src="../assets/hero3.jpg" height="150" />
+        </router-link>
+      </div>
+      <div>
+        <router-link class="col" to="/car">
+          <img src="../assets/hero3.jpg" height="180" />
           <h3>Luxury</h3>
-        </div>
-      </router-link>
-      <router-link to="/car">
-        <div>
-          <img src="../assets/hero3.jpg" height="150" />
+        </router-link>
+      </div>
+      <div>
+        <router-link class="col" to="/car">
+          <img src="../assets/hero3.jpg" height="180" />
           <h3>Sports</h3>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </div>
 
     <h2>you might like</h2>
-    <div class="might-like-category flex space-around wrap">
+    <div class="might-like-category">
       <div v-for="car in cars" :car="car" :key="car._id">
-        <router-link to="/car/details" class="col">
-          <img src="../assets/hero3.jpg" height="300" />
+        <router-link to="/car/details/c101" class="col">
+          <img src="../assets/hero3.jpg" height="250" />
           <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
           <h4>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h4>
         </router-link>
