@@ -1,11 +1,13 @@
 
 
 <template>
-  <section>
+  <section class="flex">
     <div class="car-preview">
       <div class="card-img">
-       <img v-if="!isLiked"  @click="toggleLike" class="like" src="@/assets/img/empty-heart.png" >
-         <img v-else  @click="toggleLike"  class="like" src="@/assets/img/red-heart.png" >
+       <!-- <img v-if="!isLiked"  @click="toggleLike" class="like" src="@/assets/img/empty-heart.png" >
+         <img v-else  @click="toggleLike"  class="like" src="@/assets/img/red-heart.png" > -->
+          <span v-if="!isLiked" @click="toggleLike" class="like">🤍</span>
+        <span v-else @click="toggleLike" class="like">❤️</span>
         <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
           <img class="front-img" src="@/assets/hero2.jpg" />

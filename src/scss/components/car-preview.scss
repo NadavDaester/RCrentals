@@ -22,12 +22,17 @@
     background-color: white;
     padding: 5px;
 }
+.red{
+    color: red;
+}
+
 
 .like {
+    background-color: white;
     margin:3px;
     padding: 1px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     right: 0;
     background-color: inherit;
