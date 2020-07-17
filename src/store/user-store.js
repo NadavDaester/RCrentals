@@ -2,15 +2,25 @@ import userService from '../services/user-service.js'
 
 export const userStore = {
     state: {
-
+        // loggedInUser: null
+        loggedInUser: {
+            "id": "u101",
+            "fullName": "Maor Bason",
+            "password": "12345",
+            "email": "maor456@walla.com",
+            "isAdmin": false,
+            "imgUrl": "url",
+            "createdAt": 12312312312
+        }
     },
     getters: {
-
-
+        loggedInUser(state) {
+            return state.loggedInUser
+        },
     },
     mutations: {
         setUser(state, { user }) {
-            state.loggedinUser = user;
+            state.loggedInUser = user;
         }
     },
     actions: {
