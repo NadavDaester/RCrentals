@@ -94,20 +94,20 @@ width: 75.625rem;
 }
 
 
-@include for-wide-layout{
-.imgs-container{
-    grid-template-columns: repeat(4,rem(150px));
-    // grid-template-rows: repeat(2,rem(35px));
-}
-.big-img {
-    grid-row: span 2;
-    grid-column: span 2;
-    width: rem(310px);
-    height: rem(210px);
-}
+// @include for-wide-layout{
+// .imgs-container{
+//     grid-template-columns: repeat(4,rem(150px));
+//     // grid-template-rows: repeat(2,rem(35px));
+// }
+// .big-img {
+//     grid-row: span 2;
+//     grid-column: span 2;
+//     width: rem(310px);
+//     height: rem(210px);
+// }    
 
-.small-img {
-    width: rem(150px);
-    height: rem(100px);
-}
-}
+// .small-img {
+//     width: rem(150px);
+//     height: rem(100px);
+// }
+// }
