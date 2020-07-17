@@ -5,10 +5,10 @@
 
       <div class="imgs-container grid">
         <img class="big-img" src="@/assets/hero3.jpg" />
-        <img class="small-img" src="@/assets/hero3.jpg" />
-        <img class="small-img" src="@/assets/hero3.jpg" />
-        <img class="small-img" src="@/assets/hero3.jpg" />
-        <img class="small-img" src="@/assets/hero3.jpg" />
+        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
+        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
+        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
+        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
       </div>
       <div class="car-info flex">
         <div class="details">
@@ -18,19 +18,19 @@
             <div class="features grid">
               <span>
                 <img src="@/assets/img/seat.png" />
-                {{currCar.features.seatsCount}}
+                {{currCar.features.seatsCount}} seats
               </span>
               <span>
                 <img src="@/assets/img/door.png" />
-                {{currCar.features.doorsCount}}
+                {{currCar.features.doorsCount}} doors
               </span>
               <span>
                 <img src="@/assets/img/gas.png" />
-                gas
+                Gas
               </span>
               <span>
                 <img src="@/assets/img/kpl.png" />
-                kpl: {{currCar.features.kpl}}
+                {{currCar.features.kpl}} kpl
               </span>
             </div>
           </div>
@@ -40,6 +40,10 @@
           <h3>price: $ {{currCar.price}} /day</h3>
           <span>rent start: 12/07/20</span>
           <span>rent end: 21/08/2020</span>
+          <button>book</button>
+          <span class="free-cancellation">
+            <img src="@/assets/img/like.png" /> Free cancellation
+          </span>
         </div>
         {{currCar.owner.fulName}}
       </div>
@@ -60,6 +64,9 @@ export default {
   created() {
     const carId = this.$route.params.id;
     carService.getById(carId).then(currCar => (this.currCar = currCar));
+  },
+  methods: {
+    switchImg() {}
   },
   computed: {},
   components: {}
