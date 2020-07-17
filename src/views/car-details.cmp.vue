@@ -1,7 +1,6 @@
 <template>
   <section v-if="currCar">
     <div class="flex car-container">
-      <h1 class="title">Car Details</h1>
 
       <div class="imgs-container grid">
         <img class="big-img" src="@/assets/hero3.jpg" />
@@ -14,7 +13,7 @@
         <div class="details">
           <div>
             <h1>{{currCar.vendor.company}} {{currCar.vendor.series}} {{currCar.model}}</h1>
-            <div>{{currCar.reviews[0].rating}}⭐ (50) {{currCar.owner.fullName}}</div>
+            <h3>{{currCar.reviews[0].rating}}⭐ (50) {{currCar.owner.fullName}}</h3>
             <div class="features grid">
               <span>
                 <img src="@/assets/img/seat.png" />
@@ -33,9 +32,9 @@
                 {{currCar.features.kpl}} kpl
               </span>
             </div>
+<p>            {{currCar.desc}}</p>
           </div>
         </div>
-
         <div class="payment-details flex">
           <h3>price: $ {{currCar.price}} /day</h3>
           <span>rent start: 12/07/20</span>
@@ -46,6 +45,19 @@
           </span>
         </div>
         {{currCar.owner.fulName}}
+      </div>
+
+      <div class="Reviews">
+        <h4>Reviews</h4>
+        <div class="review flex">
+          <img src alt="userImg " />
+          <div class="review-details flex">
+            <span>⭐⭐⭐⭐⭐</span>
+            <span class="reviwer-name">userName</span>
+            <span class="reviwe-time">datepublished</span>
+            <p>Sweet car and a pleasant experience! Couldn't have had a better first host!</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

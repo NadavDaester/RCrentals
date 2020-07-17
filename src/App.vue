@@ -2,15 +2,18 @@
   <div >
       <app-header></app-header>
       <router-view></router-view>
+      <app-footer></app-footer>
   </div>
 </template>
 <script>
   import appHeader from './components/header.cmp.vue'
+  import appFooter from './components/footer.cmp.vue'
 export default {
 
 
   components :{
-    appHeader
+    appHeader,
+    appFooter
   }
 }
 </script>>
