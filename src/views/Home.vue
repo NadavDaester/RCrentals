@@ -34,9 +34,11 @@
     <h2>you might like</h2>
     <div class="might-like-category flex space-around wrap">
       <div v-for="car in cars" :car="car" :key="car._id">
-        <img src="../assets/hero3.jpg" height="300" />
-        <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
-        <h4>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h4>
+        <router-link to="/car/details" class="col">
+          <img src="../assets/hero3.jpg" height="300" />
+          <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
+          <h4>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h4>
+        </router-link>
       </div>
     </div>
     <div>
