@@ -99,6 +99,10 @@ export default {
       ],
       typeOptions: [
         {
+          value: "",
+          label: "all"
+        },
+        {
           value: "exotic",
           label: "exotic"
         },
