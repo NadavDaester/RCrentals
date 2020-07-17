@@ -23,7 +23,8 @@
     <div class="might-like-category">
       <div v-for="car in cars" :car="car" :key="car._id">
         <router-link :to="'/car/'+ car._id" class="col">
-          <img src="../assets/hero3.jpg" height="250" />
+          <!-- <img :src="car.primaryImgUrl" height="250" /> -->
+          <img  :src="getImgUrl(car.primaryImgUrl)" height="250" />
           <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
           <h4>{{car.reviews[0].rating}}⭐(50) {{car.owner.fullName}}</h4>
         </router-link>
@@ -67,6 +68,10 @@ export default {
     this.$store.dispatch({ type: "loadCars" });
   },
   methods: {
+      getImgUrl(imageName) {
+         var images = require.context('../assets/cars/', false, /\.jpg$/)
+         return images('./' + imageName + ".jpg")
+     }
     // getUniqueList(arr) {
     //   return Array.from(new Set(arr));
     // }
