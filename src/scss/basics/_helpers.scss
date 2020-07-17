@@ -23,6 +23,10 @@
 .center{
     text-align: center;
 }
+.col{
+    flex-direction: column;
+}
+
 // media-helpers
 .square-ratio {
     @include aspect-ratio(1, 1);

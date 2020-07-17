@@ -5,7 +5,7 @@
 }
 
 .header-logo-img {
-    z-index: 0;
+    margin-left: 40px;
 }
 
 a {
@@ -15,18 +15,20 @@ a {
     align-items: center;
 }
 
-.header-logo-txt {
-    z-index: 1;
-}
+.header-logo-txt {}
 
 .logo-name {
     align-self: center;
 }
 
 .nav {
-    width: 40%;
+    width: 25%;
     justify-content: space-around;
     margin: 0px;
     height: 50px;
     text-decoration: none;
+    margin-right: 40px;
+    a:hover {
+        color: blue;
+    }
 }
