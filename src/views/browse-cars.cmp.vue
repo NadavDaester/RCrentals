@@ -11,6 +11,7 @@
 export default {
   name: "browse-cars",
   created() {
+    // const category = this.$route.params.category;
     this.$store.dispatch({ type: "loadCars" });
     console.log("car");
   },
