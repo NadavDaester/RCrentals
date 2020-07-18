@@ -12,7 +12,7 @@
         <router-link to="/signUp">Sign Up</router-link>
       </template>
       <template v-else>
-        <router-link :to="'/profile/'+loggedInUser.id">My Profile</router-link>
+        <router-link :to="'/profile/'+loggedInUser._id">My Profile</router-link>
         <button  @click="logout">Log out</button>
       </template>
 

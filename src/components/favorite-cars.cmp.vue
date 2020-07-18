@@ -26,6 +26,7 @@ export default {
     }
   },
   created() {
+    console.log(this.$route.params);
     const userId = this.$route.params.id;
     userService.getById(userId).then(user => (this.favCars = user.favCars));
   }
