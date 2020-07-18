@@ -105,8 +105,8 @@
                 "discountRate": 28,
                 "discountEnd": "1000*60*60*12"
             },
-            "primaryImgUrl": "maserati1",
-            "imgUrls": [
+            "primaryImgUrl":"maserati1",
+            "imgUrls": [ 
                 "url",
                 "url2",
                 "url3"
