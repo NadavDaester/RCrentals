@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section>
     <div class="bgc-img">
       <div class="text-img">
         <h1>Way better than a rental car</h1>
@@ -11,6 +11,10 @@
      
       </div>
     </div>
+    <section class="flex home-section">
+    <main class="home">
+
+      
     <h2>Browse by category</h2>
     <div class="browse-category flex wrap space-around">
       <div v-for="category in categorys" :category="category" :key="category">
@@ -47,6 +51,8 @@
         </div>
       </div>
     </div>
+  </main>
+    </section>
   </section>
 </template>
 

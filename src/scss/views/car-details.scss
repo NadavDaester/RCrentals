@@ -58,12 +58,12 @@
             height: 44px;
             line-height: 43px;
             padding: 0 14px;
-            background-color: #593cfb;
+            background-color: $clr1;
             color: #fff;
-            border: 1px solid #593cfb;
+            border: 1px solid $clr1;
             transition: .5s;
             &:hover {
-                background-color: lighten(#593cfb, 5%);
+                background-color: lighten($clr1, 5%);
             }
         }
     }
@@ -97,8 +97,7 @@
         background-color: rgba(253, 251, 251, 0.774);
         border: 1px grey solid;
         width: 60%;
-        height: 70%;
-        justify-content: center;
+        height: 80%;
         align-items: center;
         button {
             cursor: pointer;
@@ -111,14 +110,13 @@
     }
     
     .booking {
-        justify-content: space-around;
+        justify-content: space-evenly;
         flex-direction: column;
         align-items: center;
-        height: 100%;
-        .number{
+        height: 80%;
+        .number {
             width: 20%;
         }
-
         input {
             width: 250px;
             height: 35px;
@@ -129,21 +127,21 @@
             border-radius: 0;
             outline: none;
         }
-
-        .date{
-width: 160px;
+        .date {
+            width: 160px;
         }
         input:focus {
-            border: 1px solid blue;
+            border: 1px solid $clr1;
         }
         label {
             text-align: left;
             width: 250px;
+            padding-top: 20px;
         }
         button {
             cursor: pointer;
             border: 0;
-            background-color: blue;
+            background-color: $clr1;
             color: white;
             height: 50px;
             line-height: 49px;
@@ -152,23 +150,22 @@ width: 160px;
             outline: none;
         }
         button:hover {
-            background-color: lighten($color: blue, $amount: 20);
+            background-color: lighten($color: $clr1, $amount: 20);
         }
     }
     
     .booking-button {
         width: 100%;
-        height: 100px;
         justify-content: center;
         align-items: center;
         p {
             height: 50px;
             line-height: 3;
             background-color: #fff;
-            border: 1px blue solid;
+            border: 1px $clr1 solid;
             padding: 0 35px;
             span {
-                color: blue;
+                color: $clr1;
             }
         }
     }
