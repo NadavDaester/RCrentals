@@ -40,7 +40,7 @@
             <h1>price: $ {{currCar.price}} /day</h1>
             <span>rent start: 12/07/20</span>
             <span>rent end: 21/08/2020</span>
-            <button @click="openBookModal" >book</button>
+            <button @click="toggleBookModal" >book</button>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
@@ -64,7 +64,7 @@
     </div>
 
     <div class="book-modal" v-if="bookModal">
-
+      <button @click.stop="toggleBookModal" >X</button>
       <form @submit.prevent="onBook" class="flex booking">
           <label>Full Name</label>
           <input v-model="fullName"  class="signup-form-group" type="text">
@@ -105,7 +105,7 @@ export default {
   },
   methods: {
     switchImg() {},
-    openBookModal(){
+    toggleBookModal(){
       this.bookModal=!this.bookModal
     },
     onBook(){

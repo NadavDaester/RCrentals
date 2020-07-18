@@ -12,9 +12,8 @@ export const orderStore = {
 
     },
     actions: {
-
+        async bookCar(context, { orderCred }) {
+            console.log(orderCred);
+        }
     }
-
-
-
 }

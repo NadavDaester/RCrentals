@@ -34,6 +34,7 @@ methods:{
             email:this.email
         }
         let user = await this.$store.dispatch({type: 'login', userCred: userCred})
+        console.log(user);
         // this.loadLoggedinUser()
         // this.$router.push('/')
     }
