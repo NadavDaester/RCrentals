@@ -12,8 +12,11 @@ export const orderStore = {
 
     },
     actions: {
-        async bookCar(context, { orderCred }) {
-            console.log(orderCred);
+        async sendOrderToOwner({ commit }, { buyer, order, owner }) {
+            console.log(buyer, 'order', order, owner);
+            await orderService.sendOrder(buyer, order, owner)
+
+            // commit({type:'sendOrderToOwner',buyer,order,owner})
         }
     }
 }

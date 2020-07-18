@@ -26,14 +26,14 @@
         }
     }
     
-    .big-img {
+    .big {
         grid-row: span 2;
         grid-column: span 2;
         width: rem(610px);
         height: rem(410px);
     }
     
-    .small-img {
+    .small {
         width: rem(300px);
         height: rem(200px);
     }
@@ -111,13 +111,16 @@
     }
     
     .booking {
-        display: flex;
+        justify-content: space-around;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         height: 100%;
+        .number{
+            width: 20%;
+        }
+
         input {
-            width: 40%;
+            width: 250px;
             height: 35px;
             padding: 3px 10px;
             font-size: 13px;
@@ -126,11 +129,16 @@
             border-radius: 0;
             outline: none;
         }
+
+        .date{
+width: 160px;
+        }
         input:focus {
             border: 1px solid blue;
         }
         label {
-            margin-top: 10px;
+            text-align: left;
+            width: 250px;
         }
         button {
             cursor: pointer;

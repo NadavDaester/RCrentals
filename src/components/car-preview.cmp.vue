@@ -4,10 +4,10 @@
   <section class="flex">
     <div class="car-preview">
       <div class="card-img">
-       <!-- <img v-if="!isLiked"  @click="toggleLike" class="like" src="@/assets/img/empty-heart.png" >
-         <img v-else  @click="toggleLike"  class="like" src="@/assets/img/red-heart.png" > -->
-          <span v-if="!isLiked" @click="toggleLike" class="like">🤍</span>
-        <span v-else @click="toggleLike" class="like">❤️</span>
+       <img v-if="!isLiked"  @click="toggleLike" class="like" src="@/assets/img/empty-heart.png" >
+         <img v-else  @click="toggleLike"  class="like" src="@/assets/img/red-heart.png" >
+          <!-- <span v-if="!isLiked" @click="toggleLike" class="like">🤍</span>
+        <span v-else @click="toggleLike" class="like">❤️</span> -->
         <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
           <img class="front-img" src="@/assets/hero2.jpg" />
@@ -17,7 +17,7 @@
       <div class="under-img flex">
         <div class="details flex">
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
-          <div>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</div>
+          <div>{{car.reviews[0].rating}}<i class="el-icon-star-off"></i> (50) {{car.owner.fullName}}</div>
         </div>
         <button>book instantly</button>
       </div>

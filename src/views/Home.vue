@@ -11,22 +11,10 @@
     </div>
     <h2>Browse by category</h2>
     <div class="browse-category flex wrap space-around">
-      <div>
-        <router-link class="col" to="/car">
+      <div v-for="category in categorys" :category="category" :key="category">
+        <router-link class="col" :to="'/car/'+ category">
           <img src="../assets/hero3.jpg" height="180" />
-          <h3>Vintage</h3>
-        </router-link>
-      </div>
-      <div>
-        <router-link class="col" to="/car">
-          <img src="../assets/hero3.jpg" height="180" />
-          <h3>Luxury</h3>
-        </router-link>
-      </div>
-      <div>
-        <router-link class="col" to="/car">
-          <img src="../assets/hero3.jpg" height="180" />
-          <h3>Sports</h3>
+          <h3>{{category}}</h3>
         </router-link>
       </div>
     </div>
@@ -34,13 +22,14 @@
     <h2>you might like</h2>
     <div class="might-like-category">
       <div v-for="car in cars" :car="car" :key="car._id">
-        <router-link to="/car/details/c101" class="col">
-          <img src="../assets/hero3.jpg" height="250" />
+        <router-link :to="'/car/details/'+ car._id" class="col">
+          <!-- <img :src="car.primaryImgUrl" height="250" /> -->
+          <img  :src="getImgUrl(car.primaryImgUrl)" height="250" />
           <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
-          <h4>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h4>
+          <h4>{{car.reviews[0].rating}}⭐(50) {{car.owner.fullName}}</h4>
         </router-link>
       </div>
-    </div>
+    </div> 
     <div>
       <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
       <div class="flex about-info space-around">
@@ -71,15 +60,31 @@ export default {
     carPreview
   },
   data() {
-    return {};
+    return {
+      categorys: ['sport','vintage','luxury']
+    };
   },
   created() {
     this.$store.dispatch({ type: "loadCars" });
   },
+  methods: {
+      getImgUrl(imageName) {
+         var images = require.context('../assets/cars/', false, /\.jpg$/)
+         return images('./' + imageName + ".jpg")
+     }
+    // getUniqueList(arr) {
+    //   return Array.from(new Set(arr));
+    // }
+  },
   computed: {
     cars() {
       return this.$store.getters.cars;
-    }
+    },
+    // categorys() {
+    //   return this.getUniqueList(
+    //     this.$store.getters.cars.map(c => c.tags).flat()
+    //   );
+    // }
   }
 };
 </script>

@@ -7,9 +7,12 @@
     <div class="flex nav">
       <p>List your car</p>
       <router-link to="/about">About</router-link>
-      <router-link to="/login">Log In</router-link>
-      <router-link to="/signUp">Sign Up</router-link>
-      
+      <template v-if="!loggedInUser">
+        <router-link to="/login">Log In</router-link>
+        <router-link to="/signUp">Sign Up</router-link>
+      </template>
+      <button v-else @click="logout">Log out</button>
+
       <!-- <router-link to="/profile"> <img src="@/assets/default-user.jpg" alt=""> </router-link> -->
     </div>
   </section>
@@ -17,7 +20,19 @@
 
 <script>
 export default {
-  name: "appHeader"
+  name: "app-header",
+  methods: {
+    logout() {
+      console.log("ff");
+      this.$store.dispatch({ type: "logout" });
+    }
+  },
+  computed: {
+    loggedInUser() {
+      console.log(this.$store.getters.loggedInUser, "jgyj");
+      return this.$store.getters.loggedInUser;
+    }
+  }
 };
 </script>
 
