@@ -4,8 +4,11 @@ import Home from '../views/Home.vue';
 import signUp from '../views/signup.vue';
 import logIn from '../views/login.vue';
 import profile from '../views/profile.vue';
-import browseCars from '../views/browse-cars.cmp.vue'
+import browseCars from '../views/browse-cars.cmp.vue';
 import carDetails from '../views/car-details.cmp.vue';
+import ownedCars from '../components/owned-cars.cmp.vue';
+import favCars from '../components/favorite-cars.cmp.vue';
+import userReviews from '../components/user-reviews.cmp.vue';
 Vue.use(VueRouter)
 
 const routes = [{
@@ -26,7 +29,24 @@ const routes = [{
     {
         path: '/profile/:id?',
         name: 'profile',
-        component: profile
+        component: profile,
+        children:[
+            {
+                path: '/profile/owncars/:id?',
+                name: 'owncars',
+                component: ownedCars
+            },
+            {
+                path:'/profile/favoriteCar/:id?',
+                name:'favorite-car',
+                component:favCars
+            },
+            {
+                path:'/profile/reviews/:id?',
+                name:'user-reviews',
+                component:userReviews
+            }
+        ]
     },
     {
         path: '/about',

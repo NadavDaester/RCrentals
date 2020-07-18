@@ -3,7 +3,9 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 10px;
     row-gap: 1em;
-    .owned-cars{
+    text-align: center;
+    // margin: 0;
+    .profile-cars{
      grid-column: span 2;
      text-align: center;
      display: grid;
@@ -14,10 +16,10 @@
      font-size: 2rem;
      
     }
-    .profile-nav h3{
+    .profile-router{
         box-shadow: inset 0 -1px 0 0 #dddde5;
     }
-    .profile-nav h3:hover{
+    .profile-router:hover{
         cursor: pointer;
         color: gray;
     }
