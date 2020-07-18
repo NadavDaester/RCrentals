@@ -5,8 +5,8 @@
         <h1>Way better than a rental car</h1>
         <h3>Book unforgettable cars from trusted hosts around the world</h3>
         <div class="book-bar">
+         
           <input type="text"   id="search" placeholder="enter a city"   />
-      
         </div>
      
       </div>
