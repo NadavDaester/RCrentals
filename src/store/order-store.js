@@ -19,7 +19,4 @@ export const orderStore = {
             // commit({type:'sendOrderToOwner',buyer,order,owner})
         }
     }
-
-
-
 }

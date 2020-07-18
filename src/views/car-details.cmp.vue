@@ -41,7 +41,7 @@
           <div class="payment-details flex">
             <h1>price: $ {{car.price}} /day</h1>
 
-            <button @click="openBookModal">book</button>
+            <button @click="toggleBookModal">book</button>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
@@ -65,6 +65,7 @@
     </div>
 
     <div class="book-modal" v-if="bookModal&&!loggedInUser">
+      <button @click="toggleBookModal">X</button>
       <div class="flex booking">
         <label>Full Name</label>
         <input v-model="guest.fullName" class="signup-form-group" type="text" />
@@ -76,7 +77,7 @@
         <input type="date" v-model="order.pickupDate" />
         <label>
           Days:
-          <input class="number" type="number" v-model="order.daysCount" />
+          <input class="number" min="1" type="number" v-model="order.daysCount" />
         </label>
         <div class="flex booking-button">
           <p>
@@ -143,8 +144,7 @@ export default {
       this.car.imgUrls[idx] = saveImg;
       console.log(this.car.imgUrls, this.car.primaryImgUrl);
     },
-    openBookModal() {
-      console.log("thia");
+    toggleBookModal() {
       this.bookModal = !this.bookModal;
     },
     getImgUrl(imageName) {
@@ -174,6 +174,7 @@ export default {
           owner: this.car.owner
         });
       }
+       this.toggleBookModal()
     }
   },
   computed: {

@@ -39,8 +39,11 @@ export default {
       // this.loadLoggedinUser()
       this.$router.push("/");
     }
-  }
-};
+},
+
+}
+
+
 </script>
 
 <style>
