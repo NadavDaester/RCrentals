@@ -7,7 +7,8 @@ export const carService = {
     getById,
     remove,
     saveCar,
-    getByOwnerId
+    getByOwnerId,
+    getUserReviews
 }
 
 
@@ -26,8 +27,11 @@ async function query(filterBy = "") {
 async function getById(id) {
     return await httpService.get(`car/${id}`)
 }
-async function getByOwnerId(id){
+async function getByOwnerId(id) {
     return await httpService.get('car' + `?owner._id=${id}`)
+}
+async function getUserReviews(id) {
+    return await httpService.get('car/' + `?reviews.byUser._id=${id}`)
 }
 
 async function remove(id) {

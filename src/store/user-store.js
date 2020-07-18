@@ -2,18 +2,18 @@ import userService from '../services/user-service.js'
 
 export const userStore = {
     state: {
-        loggedInUser: null
-            // loggedInUser: {
-            //     "id": "u103",
-            //     "fullName": "nadav daester",
-            //     "password": "66542",
-            //     "email": "nadav444@gmail.com",
-            //     "isAdmin": true,
-            //     "imgUrl": "url",
-            //     "createdAt": 1123423423,
-            //     "orders": [],
-            //     "favCars": []
-            // }
+        // loSggedInUser: null
+            loggedInUser: {
+                "id": "u103",
+                "fullName": "nadav daester",
+                "password": "66542",
+                "email": "nadav444@gmail.com",
+                "isAdmin": true,
+                "imgUrl": "url",
+                "createdAt": 1123423423,
+                "orders": [],
+                "favCars": []
+            }
     },
     getters: {
         loggedInUser(state) {
