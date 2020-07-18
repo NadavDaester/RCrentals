@@ -5,8 +5,10 @@
         <h1>Way better than a rental car</h1>
         <h3>Book unforgettable cars from trusted hosts around the world</h3>
         <div class="book-bar">
-          <input type="text" placeholder="enter a city" name id />
+          <input type="text"   id="search" placeholder="enter a city"   />
+      
         </div>
+     
       </div>
     </div>
     <h2>Browse by category</h2>
@@ -24,12 +26,12 @@
       <div v-for="car in cars" :car="car" :key="car._id">
         <router-link :to="'/car/details/'+ car._id" class="col">
           <!-- <img :src="car.primaryImgUrl" height="250" /> -->
-          <img  :src="getImgUrl(car.primaryImgUrl)" height="250" />
+          <img :src="getImgUrl(car.primaryImgUrl)" height="250" />
           <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
           <h4>{{car.reviews[0].rating}}⭐(50) {{car.owner.fullName}}</h4>
         </router-link>
       </div>
-    </div> 
+    </div>
     <div>
       <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
       <div class="flex about-info space-around">
@@ -61,17 +63,17 @@ export default {
   },
   data() {
     return {
-      categorys: ['sport','vintage','luxury']
+      categorys: ["sport", "vintage", "luxury"]
     };
   },
   created() {
     this.$store.dispatch({ type: "loadCars" });
   },
   methods: {
-      getImgUrl(imageName) {
-         var images = require.context('../assets/cars/', false, /\.jpg$/)
-         return images('./' + imageName + ".jpg")
-     }
+    getImgUrl(imageName) {
+      var images = require.context("../assets/cars/", false, /\.jpg$/);
+      return images("./" + imageName + ".jpg");
+    }
     // getUniqueList(arr) {
     //   return Array.from(new Set(arr));
     // }
@@ -79,7 +81,7 @@ export default {
   computed: {
     cars() {
       return this.$store.getters.cars;
-    },
+    }
     // categorys() {
     //   return this.getUniqueList(
     //     this.$store.getters.cars.map(c => c.tags).flat()
