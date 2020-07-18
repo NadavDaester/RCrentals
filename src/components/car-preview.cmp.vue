@@ -20,7 +20,7 @@
         <span v-else @click="toggleLike" class="like">❤️</span>-->
         <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
-          <img class="front-img" src="@/assets/hero2.jpg" />
+          <img class="front-img" :src="getImgUrl(car.primaryImgUrl)" />
         </router-link>
       </div>
 
@@ -59,7 +59,11 @@ export default {
 
       this.isLiked = !this.isLiked;
       this.$emit("updateUserFavs", this.car, this.isLiked);
-    }
+    },
+      getImgUrl(imageName) {
+         var images = require.context('../assets/cars/', false, /\.jpg$/)
+         return images('./' + imageName + ".jpg")
+     },
   },
 
   computed: {

@@ -22,7 +22,11 @@
                     "txt": "Clean beautiful car , nice people , not much more you could ask for!",
                     "rating": 3,
                     "createdAt": 234533435,
-                    "byUser": "minimalUser"
+                    "byUser": {
+                        "_id": "u103",
+                        "fullName": "nadav daester",
+                        "imgUrl": "url"
+                    }
                 },
                 {
                     "id": "r102",
@@ -71,10 +75,10 @@
                 "imgUrl": "url"
             },
             "location": {
-                    "city": "kiryat malachi",
-                    "lat": 342343,
-                    "lng": 45343
-                    },
+                "city": "kiryat malachi",
+                "lat": 342343,
+                "lng": 45343
+            },
             "tags": [
                 "luxury",
                 "vintage"
@@ -130,7 +134,7 @@
                 "city": "Beer Sheva",
                 "lat": 423523,
                 "lng": 454643
-                    },
+            },
             "tags": [
                 "minivan",
                 "trucks"
@@ -283,7 +287,26 @@
             "imgUrl": "url",
             "createdAt": 1123423423,
             "orders": [],
-            "favCars": []
+            "favCars": [
+                {
+                    "_id": "c101",
+                    "vendor": {
+                        "company": "audi",
+                        "series": "s3"
+                    },
+                    "primaryImgUrl": "audi1",
+                    "price": 423
+                },
+                {
+                    "_id": "c103",
+                    "vendor": {
+                        "company": "mazarati",
+                        "series": "500"
+                    },
+                    "primaryImgUrl": "maserati5",
+                    "price": 323
+                }
+            ]
         }
     ]
 }
