@@ -64,15 +64,15 @@
       </div>
     </div>
 
-    <div class="book-modal" v-if="bookModal&&!loggedInUser">
+    <div class="book-modal" v-if="bookModal">
       <button @click="toggleBookModal">X</button>
       <div class="flex booking">
         <label>Full Name</label>
-        <input v-model="guest.fullName" class="signup-form-group" type="text" />
-        <label>Phone Number</label>
-        <input type="tel" v-model="guest.phoneNumber" />
+        <input v-model="fullName" class="signup-form-group" type="text" />
+        <label v-if="!loggedInUser">Phone Number</label>
+        <input type="tel" v-if="!loggedInUser" v-model="phoneNumber" />
         <label>Email</label>
-        <input v-model="guest.email" class="signup-form-group" type="email" />
+        <input v-model="email" class="signup-form-group" type="email" />
         <label>Pick up date:</label>
         <input type="date" v-model="order.pickupDate" />
         <label>
@@ -82,28 +82,6 @@
         <div class="flex booking-button">
           <p>
             Total Price : ${{totalPrice}}
-            <span>Only!</span>
-          </p>
-          <button @click="sendOrder">Book Now !</button>
-        </div>
-      </div>
-    </div>
-    <div v-else-if="bookModal&&loggedInUser" class="book-modal">
-      <div class="flex booking">
-        <label>your name:{{loggedInUser.fullName}}</label>
-        <label>your email: {{loggedInUser.email}}</label>
-        <label>
-          pick up date:
-          <input class="date" type="date" v-model="order.pickupDate" />
-        </label>
-        <label>
-          days:
-          <input class="number" type="number" min="1" v-model="order.daysCount" />
-        </label>
-
-        <div class="flex booking-button">
-          <p>
-            price: ${{totalPrice}}
             <span>Only!</span>
           </p>
           <button @click="sendOrder">Book Now !</button>
@@ -122,11 +100,11 @@ export default {
     return {
       car: null,
       bookModal: false,
-      guest: {
+      
         email: "",
         fullName: "",
-        phoneNumber: ""
-      },
+        phoneNumber: "",
+      
       order: {
         pickupDate: new Date().toLocaleDateString(),
         daysCount: "1"
@@ -136,6 +114,7 @@ export default {
   created() {
     const carId = this.$route.params.id;
     carService.getById(carId).then(car => (this.car = car));
+   
   },
   methods: {
     switchImg(idx) {
@@ -145,6 +124,11 @@ export default {
       console.log(this.car.imgUrls, this.car.primaryImgUrl);
     },
     toggleBookModal() {
+       if(this.loggedInUser){
+      this.email=this.loggedInUser.email;
+      this.phoneNumber=this.loggedInUser.phoneNumber;
+      this.fullName=this.loggedInUser.fullName;
+    }
       this.bookModal = !this.bookModal;
     },
     getImgUrl(imageName) {
