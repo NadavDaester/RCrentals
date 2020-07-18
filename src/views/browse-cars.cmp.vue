@@ -27,12 +27,20 @@ export default {
       // this.$store.dispatch({ type: 'loadCars' })
     },
     updateUserFavs(car, isLiked) {
-      this.$store.dispatch({ type: "updateFavs", car, isLiked });
+      this.$store.dispatch({
+        type: "updateFavs",
+        car,
+        isLiked,
+        user: this.loggedInUser
+      });
     }
   },
   computed: {
     cars() {
       return this.$store.getters.cars;
+    },
+    loggedInUser() {
+      return this.$store.getters.loggedInUser;
     }
   },
   components: {

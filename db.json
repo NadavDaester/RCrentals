@@ -1,6 +1,5 @@
 {
-    "car": [
-        {
+    "car": [{
             "_id": "c101",
             "owner": {
                 "_id": "u101",
@@ -16,8 +15,7 @@
                 "sport",
                 "vintage"
             ],
-            "reviews": [
-                {
+            "reviews": [{
                     "id": "r101",
                     "txt": "Clean beautiful car , nice people , not much more you could ask for!",
                     "rating": 3,
@@ -83,8 +81,7 @@
                 "luxury",
                 "vintage"
             ],
-            "reviews": [
-                {
+            "reviews": [{
                     "id": "r104",
                     "txt": "These guys are amazing! Best rental experience of my life! Extremely accommodative when I needed to extend the trip and pickup and drop off was a breeze. Highly recommend . ",
                     "rating": 3,
@@ -139,8 +136,7 @@
                 "minivan",
                 "trucks"
             ],
-            "reviews": [
-                {
+            "reviews": [{
                     "id": "r106",
                     "txt": "Very easy process responds quickly follow instructions and he's all good. I will use again. ",
                     "rating": 4,
@@ -194,8 +190,7 @@
                 "sport",
                 "exotic"
             ],
-            "reviews": [
-                {
+            "reviews": [{
                     "id": "r107",
                     "txt": "Amazing Rental. Looking forward to doing this again!",
                     "rating": 4,
@@ -235,8 +230,7 @@
             ]
         }
     ],
-    "order": [
-        {
+    "order": [{
             "_id": "o101",
             "at": 1122,
             "by": "miniUser",
@@ -255,8 +249,7 @@
             "totalPrice": 645
         }
     ],
-    "user": [
-        {
+    "user": [{
             "_id": "u101",
             "fullName": "Maor Bason",
             "password": "12345",

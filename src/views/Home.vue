@@ -13,7 +13,8 @@
     <div class="browse-category flex wrap space-around">
       <div v-for="category in categorys" :category="category" :key="category">
         <router-link class="col" :to="'/car/'+ category">
-          <img src="../assets/hero3.jpg" height="180" />
+          <!-- <img src="../assets/hero3.jpg" height="180" /> -->
+          <img :src="getImgUrl(category)" height="180" width="280" /> 
           <h3>{{category}}</h3>
         </router-link>
       </div>
@@ -61,7 +62,7 @@ export default {
   },
   data() {
     return {
-      categorys: ['sport','vintage','luxury']
+      categorys: ['sport','vintage','luxury','convertible'],
     };
   },
   created() {
