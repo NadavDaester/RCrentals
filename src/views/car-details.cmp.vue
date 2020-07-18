@@ -2,16 +2,16 @@
   <section v-if="car">
     <div class="flex car-container">
       <div class="imgs-container grid">
-        <img :class="{ small:false  ,big:true}" :src="car.primaryImgUrl" />
+        <img :class="{ small:false ,big:true}" :src="getImgUrl(car.primaryImgUrl)" />
         <img
           v-for="(img,idx) in car.imgUrls"
           @click="switchImg(idx)"
           :class="{small:true, big:false}"
-          :src="car.imgUrls[idx]"
+          :src="getImgUrl(car.imgUrls[idx])"
           :key="idx"
         />
       </div>
-
+      <!-- :src="getImgUrl(car.imgUrls[idx])" -->
       <div class="rest-page flex">
         <div class="car-info flex">
           <div class="details">
@@ -147,6 +147,10 @@ export default {
     openBookModal() {
       console.log("thia");
       this.bookModal = !this.bookModal;
+    },
+    getImgUrl(imageName) {
+      var images = require.context("../assets/cars/", false, /\.jpg$/);
+      return images("./" + imageName + ".jpg");
     },
 
     sendOrder() {

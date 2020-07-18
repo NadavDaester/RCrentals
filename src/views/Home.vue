@@ -22,7 +22,7 @@
     <h2>you might like</h2>
     <div class="might-like-category">
       <div v-for="car in cars" :car="car" :key="car._id">
-        <router-link :to="'/car/'+ car._id" class="col">
+        <router-link :to="'/car/details/'+ car._id" class="col">
           <!-- <img :src="car.primaryImgUrl" height="250" /> -->
           <img  :src="getImgUrl(car.primaryImgUrl)" height="250" />
           <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>

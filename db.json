@@ -51,9 +51,9 @@
             },
             "primaryImgUrl": "audi1",
             "imgUrls": [
-                "url",
-                "url2",
-                "url3"
+                "audi2",
+                "audi3",
+                "audi4"
             ]
         },
         {
@@ -105,11 +105,11 @@
                 "discountRate": 28,
                 "discountEnd": "1000*60*60*12"
             },
-            "primaryImgUrl":"maserati1",
-            "imgUrls": [ 
-                "url",
-                "url2",
-                "url3"
+            "primaryImgUrl": "maserati1",
+            "imgUrls": [
+                "maserati2",
+                "maserati3",
+                "maserati4"
             ]
         },
         {
@@ -163,9 +163,9 @@
             },
             "primaryImgUrl": "maserati5",
             "imgUrls": [
-                "url",
-                "url2",
-                "url3"
+                "maserati6",
+                "maserati7"
+                
             ]
         },
         {
@@ -219,9 +219,9 @@
             },
             "primaryImgUrl": "mazda1",
             "imgUrls": [
-                "url",
-                "url2",
-                "url3"
+                "mazda2",
+                "mazda3",
+                "mazda4"
             ]
         }
     ],
