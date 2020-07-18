@@ -71,10 +71,10 @@
                 "imgUrl": "url"
             },
             "location": {
-                    "city": "kiryat malachi",
-                    "lat": 342343,
-                    "lng": 45343
-                    },
+                "city": "kiryat malachi",
+                "lat": 342343,
+                "lng": 45343
+            },
             "tags": [
                 "luxury",
                 "vintage"
@@ -130,7 +130,7 @@
                 "city": "Beer Sheva",
                 "lat": 423523,
                 "lng": 454643
-                    },
+            },
             "tags": [
                 "minivan",
                 "trucks"

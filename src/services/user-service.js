@@ -65,13 +65,17 @@ function getLoggedinUser() {
 }
 
 function updateFavs(car, isLiked, user) {
+
     if (isLiked) {
         user.favCars.push(car)
+        // return httpService.post(`user/${user._id}`, car)
+
     } else {
+
         const idx = user.favCars.findIndex(favCar => car._id === favCar._id)
         user.favCars.splice(idx, 1)
+        // return httpService.delete(`user/${user._id}`)
     }
-    console.log(user);
 }
 
 

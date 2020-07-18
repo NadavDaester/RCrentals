@@ -46,6 +46,7 @@ export const userStore = {
             context.commit({ type: 'setUser', user: null })
         },
         async updateFavs({ commit }, { car, isLiked, user }) {
+            console.log(user.favCars);
             await userService.updateFavs(car, isLiked, user)
             // commit()
         }
