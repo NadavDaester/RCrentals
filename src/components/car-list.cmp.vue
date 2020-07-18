@@ -12,6 +12,7 @@
         :key="car._id"
       ></car-preview>
     </div>
+</div>
   </section>
 </template>
 

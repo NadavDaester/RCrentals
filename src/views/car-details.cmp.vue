@@ -16,7 +16,7 @@
           <div class="details">
             <div>
               <h1>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h1>
-              <h3>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h3>
+              <h3>{{car.reviews[0].rating}}<span class="star">★</span>(50) {{car.owner.fullName}}</h3>
               <div class="features grid">
                 <span>
                   <img src="@/assets/img/seat.png" />
@@ -84,7 +84,7 @@
             Total Price : ${{totalPrice}}
             <span>Only!</span>
           </p>
-          <button @click="sendOrder">Book Now !</button>
+          <button @click="saveOrder">Book Now !</button>
         </div>
       </div>
     </div>
@@ -100,11 +100,11 @@ export default {
     return {
       car: null,
       bookModal: false,
-      
-        email: "",
-        fullName: "",
-        phoneNumber: "",
-      
+
+      email: "",
+      fullName: "",
+      phoneNumber: "",
+
       order: {
         pickupDate: new Date().toLocaleDateString(),
         daysCount: "1"
@@ -114,7 +114,6 @@ export default {
   created() {
     const carId = this.$route.params.id;
     carService.getById(carId).then(car => (this.car = car));
-   
   },
   methods: {
     switchImg(idx) {
@@ -124,11 +123,11 @@ export default {
       console.log(this.car.imgUrls, this.car.primaryImgUrl);
     },
     toggleBookModal() {
-       if(this.loggedInUser){
-      this.email=this.loggedInUser.email;
-      this.phoneNumber=this.loggedInUser.phoneNumber;
-      this.fullName=this.loggedInUser.fullName;
-    }
+      if (this.loggedInUser) {
+        this.email = this.loggedInUser.email;
+        this.phoneNumber = this.loggedInUser.phoneNumber;
+        this.fullName = this.loggedInUser.fullName;
+      }
       this.bookModal = !this.bookModal;
     },
     getImgUrl(imageName) {
@@ -136,29 +135,28 @@ export default {
       return images("./" + imageName + ".jpg");
     },
 
-    sendOrder() {
+    saveOrder() {
       this.order.price = this.totalPrice;
+      this.order.owner = this.car.owner;
       if (this.loggedInUser) {
         const user = {
           email: this.loggedInUser.email,
           fullName: this.loggedInUser.fullName,
           imgUrl: this.loggedInUser.imgUrl
         };
+        this.order.buyer = user;
         this.$store.dispatch({
-          type: "sendOrderToOwner",
-          buyer: user,
-          order: this.order,
-          owner: this.car.owner
+          type: "saveOrder",
+          order: this.order
         });
       } else {
+        this.order.buyer = this.guest;
         this.$store.dispatch({
-          type: "sendOrderToOwner",
-          buyer: this.guest,
-          order: this.order,
-          owner: this.car.owner
+          type: "saveOrder",
+          order: this.order
         });
       }
-       this.toggleBookModal()
+      this.toggleBookModal();
     }
   },
   computed: {

@@ -29,11 +29,11 @@
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
           <div>
             {{car.reviews[0].rating}}
-            <i class="el-icon-star-off"></i>
+            <span class="star">★</span>
             (50) {{car.owner.fullName}}
           </div>
         </div>
-        <button>book instantly</button>
+        <button>For more details</button>
       </div>
       <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
       <div class="actions flex"></div>

@@ -31,7 +31,7 @@ async function login(userCred) {
     const user = users.find(user => user.email === userCred.email)
     if (user.password === userCred.password)
         return user
-    // const user = await httpService.post('auth/login', userCred)
+    // const user = await httpService.post('auth/user', userCred)
     // return _handleLogin(user)
 }
 
@@ -64,18 +64,8 @@ function getLoggedinUser() {
     return JSON.parse(user);
 }
 
-function updateFavs(car, isLiked, user) {
-
-    if (isLiked) {
-        user.favCars.push(car)
-        // return httpService.post(`user/${user._id}`, car)
-
-    } else {
-
-        const idx = user.favCars.findIndex(favCar => car._id === favCar._id)
-        user.favCars.splice(idx, 1)
-        // return httpService.delete(`user/${user._id}`)
-    }
+ async function updateFavs(user) {
+    return  await httpService.put(`user/${user._id}`, user)
 }
 
 

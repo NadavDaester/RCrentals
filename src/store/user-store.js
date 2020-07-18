@@ -2,18 +2,18 @@ import userService from '../services/user-service.js'
 
 export const userStore = {
     state: {
-        // loSggedInUser: null
-            loggedInUser: {
-                "id": "u103",
-                "fullName": "nadav daester",
-                "password": "66542",
-                "email": "nadav444@gmail.com",
-                "isAdmin": true,
-                "imgUrl": "url",
-                "createdAt": 1123423423,
-                "orders": [],
-                "favCars": []
-            }
+        // loggedInUser: null
+        loggedInUser: {
+            "_id": "u103",
+            "fullName": "nadav daester",
+            "password": "66542",
+            "email": "nadav444@gmail.com",
+            "isAdmin": true,
+            "imgUrl": "url",
+            "createdAt": 1123423423,
+            "orders": [],
+            "favCars": []
+        }
     },
     getters: {
         loggedInUser(state) {
@@ -46,9 +46,14 @@ export const userStore = {
             context.commit({ type: 'setUser', user: null })
         },
         async updateFavs({ commit }, { car, isLiked, user }) {
-            console.log(user.favCars);
-            await userService.updateFavs(car, isLiked, user)
-            // commit()
+            console.log(user);
+            if (isLiked) {
+                user.favCars.push(car)
+            } else {
+                const idx = user.favCars.findIndex(favCar => favCar._id === car._id)
+                user.favCars.splice(idx, 1)
+            }
+            await userService.updateFavs(user)
         }
 
     }
