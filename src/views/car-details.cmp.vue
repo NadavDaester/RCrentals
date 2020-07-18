@@ -2,11 +2,14 @@
   <section v-if="car">
     <div class="flex car-container">
       <div class="imgs-container grid">
-        <img class="big-img" src="@/assets/hero3.jpg" />
-        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
-        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
-        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
-        <img @click="switchImg" class="small-img" src="@/assets/hero3.jpg" />
+        <img :class="{ small:false  ,big:true}" :src="car.primaryImgUrl" />
+        <img
+          v-for="(img,idx) in car.imgUrls"
+          @click="switchImg(idx)"
+          :class="{small:true, big:false}"
+          :src="car.imgUrls[idx]"
+          :key="idx"
+        />
       </div>
 
       <div class="rest-page flex">
@@ -38,8 +41,7 @@
           </div>
           <div class="payment-details flex">
             <h1>price: $ {{car.price}} /day</h1>
-            <span>rent start: 12/07/20</span>
-            <span>rent end: 21/08/2020</span>
+
             <button @click="openBookModal">book</button>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
@@ -62,34 +64,41 @@
         </div>
       </div>
     </div>
-    {{bookModal}} {{!!loggedInUser}}
+
     <div class="book-modal" v-if="bookModal&&!loggedInUser">
-      <form @submit.prevent="onBook" class="flex booking">
+      <div class="flex booking">
         <label>Full Name</label>
-        <input v-model="fullName" class="signup-form-group" type="text" />
+        <input v-model="guest.fullName" class="signup-form-group" type="text" />
         <label>Phone Number</label>
-        <input type="tel" v-model="phoneNumber" />
+        <input type="tel" v-model="guest.phoneNumber" />
         <label>Email</label>
-        <input v-model="email" class="signup-form-group" type="email" />
+        <input v-model="guest.email" class="signup-form-group" type="email" />
+        <label>Pick up date:</label>
+        <input type="date" v-model="order.pickupDate" />
+        <label>
+          Days:
+          <input class="number" type="number" v-model="order.daysCount" />
+        </label>
         <div class="flex booking-button">
-          <!-- change fake price !! -->
           <p>
-            Total Price : {{fakePrice}}
+            Total Price : ${{totalPrice}}
             <span>Only!</span>
           </p>
-          <button>Book Now !</button>
+          <button @click="sendOrder">Book Now !</button>
         </div>
-      </form>
+      </div>
     </div>
     <div v-else-if="bookModal&&loggedInUser" class="book-modal">
-      {{loggedInUser}}
-      <form @submit.prevent="onBook" class="flex booking">
+      <div class="flex booking">
         <label>your name:{{loggedInUser.fullName}}</label>
         <label>your email: {{loggedInUser.email}}</label>
-        <label>pick up date: <input type="date" v-model="pickupDate"></label>
+        <label>
+          pick up date:
+          <input class="date" type="date" v-model="order.pickupDate" />
+        </label>
         <label>
           days:
-          <input type="number" v-model="daysCount" />
+          <input class="number" type="number" min="1" v-model="order.daysCount" />
         </label>
 
         <div class="flex booking-button">
@@ -97,9 +106,9 @@
             price: ${{totalPrice}}
             <span>Only!</span>
           </p>
-          <button>Book Now !</button>
+          <button @click="sendOrder">Book Now !</button>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 </template>
@@ -113,12 +122,15 @@ export default {
     return {
       car: null,
       bookModal: false,
-      fakePrice: 15,
-      email: "",
-      fullName: "",
-      phoneNumber: "",
-      pickupDate: "",
-      daysCount: ""
+      guest: {
+        email: "",
+        fullName: "",
+        phoneNumber: ""
+      },
+      order: {
+        pickupDate: new Date().toLocaleDateString(),
+        daysCount: "1"
+      }
     };
   },
   created() {
@@ -126,21 +138,39 @@ export default {
     carService.getById(carId).then(car => (this.car = car));
   },
   methods: {
-    switchImg() {},
+    switchImg(idx) {
+      var saveImg = this.car.primaryImgUrl;
+      this.car.primaryImgUrl = this.car.imgUrls[idx];
+      this.car.imgUrls[idx] = saveImg;
+      console.log(this.car.imgUrls, this.car.primaryImgUrl);
+    },
     openBookModal() {
       console.log("thia");
       this.bookModal = !this.bookModal;
     },
-    onBook() {
-      var orderCred = {
-        email: this.email,
-        fullName: this.fullName,
-        phoneNumber: this.phoneNumber
-      };
-      this.email = "";
-      this.fullName = "";
-      this.phoneNumber = "";
-      this.$store.dispatch({ type: "bookCar", orderCred: orderCred });
+
+    sendOrder() {
+      this.order.price = this.totalPrice;
+      if (this.loggedInUser) {
+        const user = {
+          email: this.loggedInUser.email,
+          fullName: this.loggedInUser.fullName,
+          imgUrl: this.loggedInUser.imgUrl
+        };
+        this.$store.dispatch({
+          type: "sendOrderToOwner",
+          buyer: user,
+          order: this.order,
+          owner: this.car.owner
+        });
+      } else {
+        this.$store.dispatch({
+          type: "sendOrderToOwner",
+          buyer: this.guest,
+          order: this.order,
+          owner: this.car.owner
+        });
+      }
     }
   },
   computed: {
@@ -148,8 +178,7 @@ export default {
       return this.$store.getters.loggedInUser;
     },
     totalPrice() {
-      console.log(this.daysCount);
-      return this.carPrice * this.daysCount;
+      return this.car.price * this.order.daysCount;
     }
   },
   components: {}

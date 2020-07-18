@@ -17,7 +17,7 @@
       <div class="under-img flex">
         <div class="details flex">
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
-          <div>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</div>
+          <div>{{car.reviews[0].rating}}<i class="el-icon-star-off"></i> (50) {{car.owner.fullName}}</div>
         </div>
         <button>book instantly</button>
       </div>

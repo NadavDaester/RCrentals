@@ -1,5 +1,6 @@
 {
-    "car": [{
+    "car": [
+        {
             "_id": "c101",
             "owner": {
                 "_id": "u101",
@@ -15,7 +16,8 @@
                 "sport",
                 "vintage"
             ],
-            "reviews": [{
+            "reviews": [
+                {
                     "id": "r101",
                     "txt": "beautiful car",
                     "rating": 3,
@@ -70,7 +72,8 @@
                 "luxury",
                 "vintage"
             ],
-            "reviews": [{
+            "reviews": [
+                {
                     "id": "r104",
                     "txt": "sexy car ",
                     "rating": 3,
@@ -102,7 +105,7 @@
                 "discountRate": 28,
                 "discountEnd": "1000*60*60*12"
             },
-            "primaryImgUrl":"maserati1",
+            "primaryImgUrl": "maserati1",
             "imgUrls": [
                 "url",
                 "url2",
@@ -112,7 +115,7 @@
         {
             "_id": "c103",
             "owner": {
-                "_id": "u105",
+                "_id": "u101",
                 "fullName": "nadav daester",
                 "imgUrl": "url",
                 "location": {
@@ -125,7 +128,8 @@
                 "minivan",
                 "trucks"
             ],
-            "reviews": [{
+            "reviews": [
+                {
                     "id": "r106",
                     "txt": "i didnt like the seats , the car making a lot of noise during the drive  ",
                     "rating": 2,
@@ -180,7 +184,8 @@
                 "sport",
                 "exotic"
             ],
-            "reviews": [{
+            "reviews": [
+                {
                     "id": "r107",
                     "txt": "Amazing Rental. Looking forward to doing this again!",
                     "rating": 4,
@@ -220,7 +225,8 @@
             ]
         }
     ],
-    "order": [{
+    "order": [
+        {
             "_id": "o101",
             "at": 1122,
             "by": "miniUser",
@@ -239,33 +245,36 @@
             "totalPrice": 645
         }
     ],
-    "user": [{
-            "id": "u101",
+    "user": [
+        {
+            "_id": "u101",
             "fullName": "Maor Bason",
             "password": "12345",
             "email": "maor456@walla.com",
             "isAdmin": false,
             "imgUrl": "url",
-            "createdAt": 12312312312
+            "createdAt": 12312312312,
+            "orders": []
         },
         {
-            "id": "u102",
+            "_id": "u102",
             "fullName": "adi peled",
             "password": "54321",
             "email": "adi123@gmail.com",
             "isAdmin": true,
             "imgUrl": "url",
-            "createdAt": 12312312312
+            "createdAt": 12312312312,
+            "orders": []
         },
         {
-            "id": "u103",
+            "_id": "u103",
             "fullName": "nadav daester",
             "password": "66542",
             "email": "nadav444@gmail.com",
             "isAdmin": true,
             "imgUrl": "url",
-            "createdAt": 1123423423
+            "createdAt": 1123423423,
+            "orders": []
         }
     ]
- 
 }

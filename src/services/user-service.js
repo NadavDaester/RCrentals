@@ -1,4 +1,6 @@
 import httpService from './http-service'
+import json from '../../db.json';
+var users = json.user
 
 export default {
     login,
@@ -11,12 +13,12 @@ export default {
     getLoggedinUser
 }
 
- function getById(userId) {
+function getById(userId) {
     return httpService.get(`user/${userId}`)
 }
 
- async  function remove(userId) {
-    return  httpService.delete(`user/${userId}`)
+async function remove(userId) {
+    return httpService.delete(`user/${userId}`)
 }
 
 function update(user) {
@@ -24,16 +26,22 @@ function update(user) {
 }
 
 async function login(userCred) {
-    const user = await httpService.post('auth/login', userCred)
-    return _handleLogin(user)
+    console.log(userCred);
+    const user = users.find(user => user.email === userCred.email)
+    if (user.password === userCred.password)
+        return user
+    // const user = await httpService.post('auth/login', userCred)
+    // return _handleLogin(user)
 }
 async function signup(userCred) {
-    const user = await httpService.post('auth/signup', userCred)
-    return _handleLogin(user)
+    users.push(userCred)
+    return userCred
+    // const user = await httpService.post('auth/signup', userCred)
+    // return _handleLogin(user)
 }
 async function logout() {
-    await httpService.post('auth/logout');
-    sessionStorage.clear();
+    // await httpService.post('auth/logout');
+    // sessionStorage.clear();
 }
 
 function getUsers() {
@@ -50,3 +58,5 @@ function getLoggedinUser() {
     if (!user) return ''
     return JSON.parse(user);
 }
+
+
