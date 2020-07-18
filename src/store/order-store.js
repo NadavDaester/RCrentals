@@ -12,10 +12,9 @@ export const orderStore = {
 
     },
     actions: {
-        async sendOrderToOwner({ commit }, { buyer, order, owner }) {
-            console.log(buyer, 'order', order, owner);
-            await orderService.sendOrder(buyer, order, owner)
-
+        async saveOrder({ commit }, { order }) {
+            console.log(order);
+            await orderService.saveOrder(order)
             // commit({type:'sendOrderToOwner',buyer,order,owner})
         }
     }

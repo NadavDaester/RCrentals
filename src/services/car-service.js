@@ -11,9 +11,6 @@ export const carService = {
 }
 
 
-// async function query(filterBy='') {
-//     return await httpService.get(`car`)
-// }
 
 async function query(filterBy = "") {
     if (!filterBy) {

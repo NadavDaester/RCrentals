@@ -4,7 +4,7 @@ export const userStore = {
     state: {
         // loggedInUser: null
         loggedInUser: {
-            "id": "u103",
+            "_id": "u103",
             "fullName": "nadav daester",
             "password": "66542",
             "email": "nadav444@gmail.com",
@@ -46,9 +46,14 @@ export const userStore = {
             context.commit({ type: 'setUser', user: null })
         },
         async updateFavs({ commit }, { car, isLiked, user }) {
-            console.log(user.favCars);
-            await userService.updateFavs(car, isLiked, user)
-                // commit()
+            console.log(user);
+            if (isLiked) {
+                user.favCars.push(car)
+            } else {
+                const idx = user.favCars.findIndex(favCar => favCar._id === car._id)
+                user.favCars.splice(idx, 1)
+            }
+            await userService.updateFavs(user)
         }
 
     }

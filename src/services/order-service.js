@@ -1,17 +1,32 @@
 import httpService from './http-service';
-import json from '../../db.json';
 import userService from '../services/user-service.js'
-var orders = json.order
-var users = json.user
 export default {
-    sendOrder
+    saveOrder,
+    remove
+}
+async function _add(order) {
+
+    const user = await userService.getById(order.owner._id)
+    // user.orders.push(order)
+    // console.log(user);
+
+    // await httpService.put(`user/${user._id}`, user)
+    return await httpService.post(`order/`, order)
+
 }
 
-console.log(users);
-async function sendOrder(buyer, order, owner) {
-    const user = await userService.getById(owner._id)
-    order.buyer = buyer
-    orders.push(order)
-    user.orders.push(order)
-    console.log(user);
+
+async function remove(id) {
+    return await httpService.delete(`order/${id}`)
 }
+
+function saveOrder(order) {
+    console.log(order);
+    return (order._id) ? _update(order) : _add(order)
+}
+
+async function _update(order) {
+    return await httpService.put(`order/${order._id}`, order)
+
+}
+
