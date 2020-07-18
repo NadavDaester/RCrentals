@@ -11,7 +11,10 @@
         <router-link to="/login">Log In</router-link>
         <router-link to="/signUp">Sign Up</router-link>
       </template>
-      <button v-else @click="logout">Log out</button>
+      <template v-else>
+        <router-link :to="'/profile/'+loggedInUser.id">My Profile</router-link>
+        <button  @click="logout">Log out</button>
+      </template>
 
       <!-- <router-link to="/profile"> <img src="@/assets/default-user.jpg" alt=""> </router-link> -->
     </div>
