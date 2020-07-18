@@ -67,14 +67,14 @@
             "_id": "c102",
             "owner": {
                 "_id": "u103",
-                "fullName": "adi peled",
-                "imgUrl": "url",
-                "location": {
+                "fullName": "nadav daester",
+                "imgUrl": "url"
+            },
+            "location": {
                     "city": "kiryat malachi",
                     "lat": 342343,
                     "lng": 45343
-                }
-            },
+                    },
             "tags": [
                 "luxury",
                 "vintage"
@@ -123,14 +123,14 @@
             "_id": "c103",
             "owner": {
                 "_id": "u102",
-                "fullName": "nadav daester",
-                "imgUrl": "url",
-                "location": {
-                    "city": "Beer Sheva",
-                    "lat": 423523,
-                    "lng": 454643
-                }
+                "fullName": "adi peled",
+                "imgUrl": "url"
             },
+            "location": {
+                "city": "Beer Sheva",
+                "lat": 423523,
+                "lng": 454643
+                    },
             "tags": [
                 "minivan",
                 "trucks"

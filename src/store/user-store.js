@@ -4,7 +4,7 @@ export const userStore = {
     state: {
         // loggedInUser: null
         loggedInUser: {
-            "_id": "u103",
+            "id": "u103",
             "fullName": "nadav daester",
             "password": "66542",
             "email": "nadav444@gmail.com",
