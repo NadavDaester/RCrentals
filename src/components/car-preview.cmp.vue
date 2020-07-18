@@ -33,7 +33,7 @@
             (50) {{car.owner.fullName}}
           </div>
         </div>
-        <button>book instantly</button>
+        <button>For more details</button>
       </div>
       <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
       <div class="actions flex"></div>

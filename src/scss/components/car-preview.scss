@@ -6,7 +6,6 @@
     .details {
         flex-direction: column;
         padding: 5px;
-        
     }
 }
 
@@ -20,16 +19,17 @@
     right: 0;
     margin: 5px;
     background-color: white;
+    border: 1px rgb(195, 195, 195) solid;
     padding: 5px;
 }
-.red{
+
+.red {
     color: red;
 }
 
-
 .like {
     background-color: white;
-    margin:3px;
+    margin: 3px;
     padding: 1px;
     width: 30px;
     height: 30px;
@@ -40,33 +40,32 @@
     cursor: pointer;
 }
 
-
-.under-img{
-   .details{
-       width: 59%;
-   }
-        button {
-            align-self: center;
-            width: 30%;
-            letter-spacing: 0;
-            line-height: 16px;
-            text-transform: none;
-            background-color: #E7E7E8;
-            border-radius: 2px;
-            margin-right: 8px;
-            padding: 4px 8px;
-            white-space: nowrap;
-            margin: 0;
-            color: #121214;
-            margin-bottom: 0;
-            font-size: 12px;
-            cursor: pointer;
-            width: 120px;
-    height: 26px;
-    transition: .5s;
-    &:hover{
-        background-color:darken(#E7E7E8,15%) ;
+.under-img {
+    .details {
+        width: 59%;
     }
+    button {
+        align-self: center;
+        width: 30%;
+        letter-spacing: 0;
+        line-height: 16px;
+        text-transform: none;
+        background-color: #121214;
+        border-radius: 2px;
+        margin-right: 8px;
+        padding: 4px 8px;
+        white-space: nowrap;
+        margin: 0;
+        outline: none;
+        color: white;
+        margin-bottom: 0;
+        font-size: 12px;
+        cursor: pointer;
+        width: 120px;
+        height: 26px;
+        transition: .5s;
+        &:hover {
+            background-color: lighten(black, 55%);
         }
-    
+    }
 }

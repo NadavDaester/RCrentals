@@ -48,7 +48,7 @@ export const userStore = {
         async updateFavs({ commit }, { car, isLiked, user }) {
             console.log(user.favCars);
             await userService.updateFavs(car, isLiked, user)
-            // commit()
+                // commit()
         }
 
     }
