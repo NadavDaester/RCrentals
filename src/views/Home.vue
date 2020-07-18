@@ -73,7 +73,7 @@ export default {
       categorys: ['sport','vintage','luxury','convertible'],
     };
   },
-  created() {
+  created() { 
     this.$store.dispatch({ type: "loadCars" });
   },
   methods: {
