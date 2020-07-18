@@ -2,16 +2,18 @@ import userService from '../services/user-service.js'
 
 export const userStore = {
     state: {
-        loggedInUser: null
-        // loggedInUser: {
-        //     "id": "u101",
-        //     "fullName": "Maor Bason",
-        //     "password": "12345",
-        //     "email": "maor456@walla.com",
-        //     "isAdmin": false,
-        //     "imgUrl": "url",
-        //     "createdAt": 12312312312
-        // }
+        // loggedInUser: null
+        loggedInUser: {
+            "_id": "u103",
+            "fullName": "nadav daester",
+            "password": "66542",
+            "email": "nadav444@gmail.com",
+            "isAdmin": true,
+            "imgUrl": "url",
+            "createdAt": 1123423423,
+            "orders": [],
+            "favCars": []
+        }
     },
     getters: {
         loggedInUser(state) {
@@ -41,10 +43,12 @@ export const userStore = {
         },
         async logout(context) {
             await userService.logout();
-
             context.commit({ type: 'setUser', user: null })
-
         },
+        async updateFavs({ commit }, { car , isLiked }) {
+            await userService.updateFavs(car,isLiked)
+            // commit()
+        }
 
     }
 

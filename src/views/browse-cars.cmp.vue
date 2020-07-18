@@ -3,7 +3,7 @@
     <h1 class="title">Cars</h1>
     <car-filter @filter="setFilter"></car-filter>
 
-    <car-list @removeCar="removeCar" :cars="cars"></car-list>
+    <car-list @updateUserFavs="updateUserFavs" @removeCar="removeCar" :cars="cars"></car-list>
   </section>
 </template>
 
@@ -25,6 +25,9 @@ export default {
     setFilter(filterBy) {
       this.$store.dispatch({ type: "loadCars", filterBy });
       // this.$store.dispatch({ type: 'loadCars' })
+    },
+    updateUserFavs(car, isLiked) {
+      this.$store.dispatch({ type: "updateFavs", car, isLiked });
     }
   },
   computed: {

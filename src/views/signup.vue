@@ -54,7 +54,8 @@ export default {
         createdAt: Date.now(),
         isAdmin: false,
         imgUrl: null,
-        orders: []
+        orders: [],
+        favCars: []
       };
       this.$store.dispatch({ type: "signUp", userCred: user });
       this.$router.push("/");

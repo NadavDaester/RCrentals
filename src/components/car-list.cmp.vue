@@ -1,15 +1,21 @@
 
 <template >
-  <section class="car-list flex ">
+  <section class="car-list flex">
     <h1 class="title-list">type:</h1>
-    <div class="cards-container grid "  > 
-    <car-preview  class="car-card"  @removeCar="removeCar" v-for="car in cars" :car="car" :key="car._id"></car-preview>
+    <div class="cards-container grid">
+      <car-preview
+        class="car-card"
+        @updateUserFavs="updateUserFavs"
+        @removeCar="removeCar"
+        v-for="car in cars"
+        :car="car"
+        :key="car._id"
+      ></car-preview>
     </div>
   </section>
 </template>
 
 <script>
-
 export default {
   name: "car-list",
   props: {
@@ -23,11 +29,14 @@ export default {
     },
     addCar() {
       this.$router.push("/car/edit");
+    },
+    updateUserFavs(car, isLiked) {
+      console.log(car, isLiked);
+      this.$emit("updateUserFavs", car, isLiked);
     }
   },
   components: {
-    carPreview,
-    
+    carPreview
   }
 };
 import carPreview from "./car-preview.cmp.vue";

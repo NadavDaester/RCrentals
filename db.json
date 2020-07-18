@@ -260,7 +260,8 @@
             "isAdmin": false,
             "imgUrl": "url",
             "createdAt": 12312312312,
-            "orders": []
+            "orders": [],
+            "favCars": []
         },
         {
             "_id": "u102",
@@ -270,7 +271,8 @@
             "isAdmin": true,
             "imgUrl": "url",
             "createdAt": 12312312312,
-            "orders": []
+            "orders": [],
+            "favCars": []
         },
         {
             "_id": "u103",
@@ -280,7 +282,8 @@
             "isAdmin": true,
             "imgUrl": "url",
             "createdAt": 1123423423,
-            "orders": []
+            "orders": [],
+            "favCars": []
         }
     ]
 }

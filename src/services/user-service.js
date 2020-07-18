@@ -60,3 +60,6 @@ function getLoggedinUser() {
 }
 
 
+
+// console.log(car, isLiked);
+
