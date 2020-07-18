@@ -10,7 +10,8 @@ export default {
     getById,
     remove,
     update,
-    getLoggedinUser
+    getLoggedinUser,
+    updateFavs
 }
 
 function getById(userId) {
@@ -63,7 +64,14 @@ function getLoggedinUser() {
     return JSON.parse(user);
 }
 
+function updateFavs(car, isLiked, user) {
+    if (isLiked) {
+        user.favCars.push(car)
+    } else {
+        const idx = user.favCars.findIndex(favCar => car._id === favCar._id)
+        user.favCars.splice(idx, 1)
+    }
+    console.log(user);
+}
 
-
-// console.log(car, isLiked);
 
