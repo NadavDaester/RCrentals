@@ -11,7 +11,6 @@
           :key="idx"
         />
       </div>
-      <!-- :src="getImgUrl(car.imgUrls[idx])" -->
       <div class="rest-page flex">
         <div class="car-info flex">
           <div class="details">
@@ -40,25 +39,32 @@
             </div>
           </div>
           <div class="payment-details flex">
+<<<<<<< HEAD
+            <h1>price: $ {{currCar.price}} /day</h1>
+            <span>rent start: 12/07/20</span>
+            <span>rent end: 21/08/2020</span>
+            <button @click="toggleBookModal" >book</button>
+=======
             <h1>price: $ {{car.price}} /day</h1>
 
             <button @click="openBookModal">book</button>
+>>>>>>> 3599b4f4b14d7da1e38c9c120f12db5865111f5c
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
           </div>
           {{car.owner.fulName}}
         </div>
-
         <div class="Reviews">
           <h4>Reviews</h4>
-          <div class="review flex">
+          <div v-for="review in car.reviews" :key="review.id" class="review flex">
             <img src alt="userImg " />
             <div class="review-details flex">
-              <span>⭐⭐⭐⭐⭐</span>
-              <span class="reviwer-name">userName</span>
-              <span class="reviwe-time">datepublished</span>
-              <p>Sweet car and a pleasant experience! Couldn't have had a better first host!</p>
+              <span>{{review.rating}}⭐</span>
+              <span class="reviwer-name">{{review.byUser}}</span>
+
+              <span class="reviwe-time">{{new Date(review.createdAt).toLocaleDateString()}}</span>
+              <p>{{review.txt}}</p>
             </div>
           </div>
         </div>

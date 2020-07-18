@@ -17,6 +17,7 @@
   </section>
 </template>
 
+
 <script>
 export default {
   data() {
@@ -38,8 +39,21 @@ export default {
       // this.loadLoggedinUser()
       this.$router.push("/");
     }
-  }
-};
+},
+methods:{
+   async onLogin(){
+        var userCred={
+            password:this.password,
+            email:this.email
+        }
+        let user = await this.$store.dispatch({type: 'login', userCred: userCred})
+        console.log(user);
+        // this.loadLoggedinUser()
+        // this.$router.push('/')
+    }
+}
+}
+
 </script>
 
 <style>
