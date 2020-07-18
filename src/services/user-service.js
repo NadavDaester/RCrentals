@@ -1,6 +1,6 @@
 import httpService from './http-service'
-import json from '../../db.json';
-var users = json.user
+// import json from '../../../../db.json';
+// var users = json.user
 
 export default {
     login,
@@ -28,6 +28,8 @@ function update(user) {
 
 async function login(userCred) {
     console.log(userCred);
+    const users = await getUsers()
+    console.log(users);
     const user = users.find(user => user.email === userCred.email)
     if (user.password === userCred.password)
         return user
@@ -64,8 +66,8 @@ function getLoggedinUser() {
     return JSON.parse(user);
 }
 
- async function updateFavs(user) {
-    return  await httpService.put(`user/${user._id}`, user)
+async function updateFavs(user) {
+    return await httpService.put(`user/${user._id}`, user)
 }
 
 
