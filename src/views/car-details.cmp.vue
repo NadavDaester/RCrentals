@@ -16,7 +16,7 @@
           <div class="details">
             <div>
               <h1>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h1>
-              <h3>{{car.reviews[0].rating}}⭐ (50) {{car.owner.fullName}}</h3>
+              <h3>{{car.reviews[0].rating}}<span class="star">★</span>(50) {{car.owner.fullName}}</h3>
               <div class="features grid">
                 <span>
                   <img src="@/assets/img/seat.png" />

@@ -5,7 +5,7 @@
       <span class="logo-name">RCRentals</span>
     </router-link>
     <div class="flex nav">
-      <p>List your car</p>
+      <router-link to="/">List your car</router-link>
       <router-link to="/about">About</router-link>
       <template v-if="!loggedInUser">
         <router-link to="/login">Log In</router-link>

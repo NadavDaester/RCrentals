@@ -29,7 +29,7 @@
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
           <div>
             {{car.reviews[0].rating}}
-            <i class="el-icon-star-off"></i>
+            <span class="star">★</span>
             (50) {{car.owner.fullName}}
           </div>
         </div>

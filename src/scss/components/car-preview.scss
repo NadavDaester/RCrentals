@@ -5,7 +5,7 @@
     }
     .details {
         flex-direction: column;
-        padding: 5px;
+        padding-top: 10px;
     }
 }
 
@@ -23,8 +23,9 @@
     padding: 5px;
 }
 
-.red {
-    color: red;
+.star {
+    color: $clr1;
+    font-size: 18px;
 }
 
 .like {
@@ -45,27 +46,19 @@
         width: 59%;
     }
     button {
-        align-self: center;
-        width: 30%;
-        letter-spacing: 0;
-        line-height: 16px;
-        text-transform: none;
-        background-color: #121214;
-        border-radius: 2px;
-        margin-right: 8px;
-        padding: 4px 8px;
-        white-space: nowrap;
-        margin: 0;
+        flex: auto;
+        border: none;
+        align-self: flex-end;
+        background-color: $clr1;
         outline: none;
         color: white;
-        margin-bottom: 0;
         font-size: 12px;
         cursor: pointer;
         width: 120px;
         height: 26px;
         transition: .5s;
         &:hover {
-            background-color: lighten(black, 55%);
+            background-color: lighten($clr1, 10%);
         }
     }
 }
