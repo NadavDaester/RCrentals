@@ -130,13 +130,24 @@
 }
 
 #search {
-    border-radius: 15px;
-    width: 90%;
     background-image: url('~@/assets/img/search.png');
-    background-size: contain;
     background-repeat: no-repeat;
     text-indent: 20px;
-    background-position: right;
+    background-position: 25% 50%;
+    background-size: 20px 22px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    width: 60%;
+    padding: 10px;
+}
+
+#search:focus {
+    background-image: none;
+}
+
+#search:focus::placeholder {
+    color: transparent;
 }
 
 ::placeholder {
