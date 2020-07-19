@@ -19,7 +19,9 @@
 
 
 <script>
+  import {eventBus} from '../main-services/eventBus.js'
 export default {
+  name:'login-page',
   data() {
     return {
       password: "",
@@ -36,8 +38,9 @@ export default {
         type: "login",
         userCred: userCred
       });
-      // this.loadLoggedinUser()
-      this.$router.push("/");
+      
+       eventBus.$emit('sendSwal','Logged In')
+       this.$router.push("/");
     }
 },
 
