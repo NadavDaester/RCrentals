@@ -93,6 +93,7 @@
 
 <script>
 import { carService } from "../services/car-service.js";
+import {eventBus} from '../main-services/eventBus.js'
 
 export default {
   name: "car-details",
@@ -100,11 +101,9 @@ export default {
     return {
       car: null,
       bookModal: false,
-
       email: "",
       fullName: "",
       phoneNumber: "",
-
       order: {
         pickupDate: new Date().toLocaleDateString(),
         daysCount: "1"
@@ -156,6 +155,7 @@ export default {
           order: this.order
         });
       }
+       eventBus.$emit('sendSwal','Booked !')
       this.toggleBookModal();
     }
   },

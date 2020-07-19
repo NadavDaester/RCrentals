@@ -6,14 +6,31 @@
   </div>
 </template>
 <script>
+  import Swal from 'sweetalert2'
   import appHeader from './components/header.cmp.vue'
   import appFooter from './components/footer.cmp.vue'
+  import {eventBus} from './main-services/eventBus.js'
 export default {
 
 
   components :{
     appHeader,
     appFooter
+  },
+  created(){
+
+     eventBus.$on('sendSwal',this.swalMsg)
+
+  },methods:{
+    swalMsg(msg){
+      Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: msg,
+      showConfirmButton: false,
+      timer: 1500
+})
+    }
   }
 }
 </script>>

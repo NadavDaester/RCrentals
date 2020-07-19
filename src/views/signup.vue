@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import {eventBus} from '../main-services/eventBus.js'
 export default {
   name: "signup",
   data() {
@@ -58,6 +59,7 @@ export default {
         favCars: []
       };
       this.$store.dispatch({ type: "signUp", userCred: user });
+       eventBus.$emit('sendSwal','Signed Up')
       this.$router.push("/");
     }
   }
