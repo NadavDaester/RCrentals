@@ -41,7 +41,7 @@ function saveCar(car) {
 
 async function _update(car) {
     return await httpService.put(`car/${car._id}`, car)
-        .then(res => res.data)
+      
 }
 
 async function _add(car) {

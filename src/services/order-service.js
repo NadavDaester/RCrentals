@@ -2,7 +2,8 @@ import httpService from './http-service';
 import userService from '../services/user-service.js'
 export default {
     saveOrder,
-    remove
+    remove,
+    getOrders
 }
 async function _add(order) {
 
@@ -15,6 +16,10 @@ async function _add(order) {
 
 }
 
+
+async function getOrders() {
+    return await httpService.get(`order`)
+}
 
 async function remove(id) {
     return await httpService.delete(`order/${id}`)

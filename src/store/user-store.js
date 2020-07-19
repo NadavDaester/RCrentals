@@ -23,20 +23,17 @@ export const userStore = {
     mutations: {
         setUser(state, { user }) {
             state.loggedInUser = user;
-            console.log(state.loggedInUser);
         },
     },
     actions: {
         async signUp(context, { userCred }) {
             const user = await userService.signup(userCred)
-            console.log(user);
             context.commit({ type: 'setUser', user })
             return user;
 
         },
         async login(context, { userCred }) {
             const user = await userService.login(userCred);
-            console.log(user);
 
             context.commit({ type: 'setUser', user })
             return user;
@@ -46,7 +43,6 @@ export const userStore = {
             context.commit({ type: 'setUser', user: null })
         },
         async updateFavs({ commit }, { car, isLiked, user }) {
-            console.log(user);
             if (isLiked) {
                 user.favCars.push(car)
             } else {

@@ -2,8 +2,8 @@
 
 <template>
   <section class="flex">
-    <div class="car-preview">
-      <div class="card-img">
+    <div class="car-preview ">
+      <div class="card-img ">
         <img
           v-if="!isLiked&&loggedInUser"
           @click="toggleLike"
@@ -23,7 +23,7 @@
           <img class="front-img" :src="getImgUrl(car.primaryImgUrl)" />
         </router-link>
       </div>
-
+  
       <div class="under-img flex">
         <div class="details flex">
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>

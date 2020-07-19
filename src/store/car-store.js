@@ -38,7 +38,6 @@ export const carStore = {
             } catch (err) {
                 console.log(err);
             }
-
         },
         async removeCar({ commit }, { id }) {
             try {

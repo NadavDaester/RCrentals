@@ -5,53 +5,43 @@
         <h1>Way better than a rental car</h1>
         <h3>Book unforgettable cars from trusted hosts around the world</h3>
         <div class="book-bar">
-         
-          <input type="text"   id="search" placeholder="enter a city"   />
+          <input type="text" id="search" placeholder="enter a city" />
         </div>
-     
       </div>
     </div>
     <section class="flex home-section">
-    <main class="home">
+      <main class="home">
+        <h2>Browse by category</h2>
+        <div class="browse-category flex wrap space-around">
+          <div v-for="category in categorys" :category="category" :key="category">
+            <router-link class="col" :to="'/car/'+ category">
+              <!-- <img src="../assets/hero3.jpg" height="180" /> -->
+              <img :src="getImgUrl(category)" height="180" width="280" />
+              <h3>{{category}}</h3>
+            </router-link>
+          </div>
+        </div>
+        <!-- <img :src="car.primaryImgUrl" height="250" /> -->
 
-      
-    <h2>Browse by category</h2>
-    <div class="browse-category flex wrap space-around">
-      <div v-for="category in categorys" :category="category" :key="category">
-        <router-link class="col" :to="'/car/'+ category">
-          <!-- <img src="../assets/hero3.jpg" height="180" /> -->
-          <img :src="getImgUrl(category)" height="180" width="280" /> 
-          <h3>{{category}}</h3>
-        </router-link>
-      </div>
-    </div>
-
-    <h2>you might like</h2>
-    <div class="might-like-category">
-      <div v-for="car in cars" :car="car" :key="car._id">
-        <router-link :to="'/car/details/'+ car._id" class="col">
-          <!-- <img :src="car.primaryImgUrl" height="250" /> -->
-          <img :src="getImgUrl(car.primaryImgUrl)" height="250" />
-          <h3>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h3>
-          <h4>{{car.reviews[0].rating}}⭐(50) {{car.owner.fullName}}</h4>
-        </router-link>
-      </div>
-    </div>
-    <div>
-      <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
-      <div class="flex about-info space-around">
-        <div>
-          <h4>Endless options</h4>Choose from hundreds of models you won’t find anywhere else. Pick it up or get it delivered where you want it.
+        <h2>you might like</h2>
+        <div class="might-like-category">
+          <carPreview v-for="car in cars.slice(cars.length-3)" :car="car" :key="car._id"></carPreview>
         </div>
         <div>
-          <h4>24/7 customer support</h4>Rest easy knowing that everyone in the Turo community is screened, and 24/7 customer support and roadside assistance are just a click away.
+          <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
+          <div class="flex about-info space-around">
+            <div>
+              <h4>Endless options</h4>Choose from hundreds of models you won’t find anywhere else. Pick it up or get it delivered where you want it.
+            </div>
+            <div>
+              <h4>24/7 customer support</h4>Rest easy knowing that everyone in the Turo community is screened, and 24/7 customer support and roadside assistance are just a click away.
+            </div>
+            <div>
+              <h4>Drive confidently</h4>Drive confidently with your choice of protection plans — all plans include varying levels of liability insurance from Liberty Mutual provided through Turo Insurance Agency and physical damage protection.
+            </div>
+          </div>
         </div>
-        <div>
-          <h4>Drive confidently</h4>Drive confidently with your choice of protection plans — all plans include varying levels of liability insurance from Liberty Mutual provided through Turo Insurance Agency and physical damage protection.
-        </div>
-      </div>
-    </div>
-  </main>
+      </main>
     </section>
   </section>
 </template>
@@ -70,10 +60,10 @@ export default {
   },
   data() {
     return {
-      categorys: ['sport','vintage','luxury','convertible'],
+      categorys: ["sport", "vintage", "luxury", "convertible"]
     };
   },
-  created() { 
+  created() {
     this.$store.dispatch({ type: "loadCars" });
   },
   methods: {
