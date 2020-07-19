@@ -29,10 +29,10 @@
               <h4>Endless options</h4>Choose from hundreds of models you won’t find anywhere else. Pick it up or get it delivered where you want it.
             </div>
             <div>
-              <h4>24/7 customer support</h4>Rest easy knowing that everyone in the Turo community is screened, and 24/7 customer support and roadside assistance are just a click away.
+              <h4>24/7 customer support</h4>Rest easy knowing that everyone in the Rcrentals community is screened, and 24/7 customer support and roadside assistance are just a click away.
             </div>
             <div>
-              <h4>Drive confidently</h4>Drive confidently with your choice of protection plans — all plans include varying levels of liability insurance from Liberty Mutual provided through Turo Insurance Agency and physical damage protection.
+              <h4>Drive confidently</h4>Drive confidently with your choice of protection plans — all plans include varying levels of liability insurance from Liberty Mutual provided through RCrentals Insurance Agency and physical damage protection.
             </div>
           </div>
         </div>

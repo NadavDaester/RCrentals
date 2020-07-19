@@ -61,6 +61,11 @@
         font-size: 1.5rem;
     }
 }
+.category-head{
+    a{
+        color: gray;
+    }
+}
 
 .might-like-category {
     // display: grid;
@@ -70,7 +75,7 @@
     display: flex;
     justify-content: space-between;
     div {
-        text-align: center;
+        text-align: left;
         transition: opacity 0.3s
     }
     div:hover {

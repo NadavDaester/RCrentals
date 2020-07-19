@@ -2,19 +2,25 @@
     justify-content: space-between;
     align-items: center;
     border: 1px solid rgba(181, 180, 186, .25);
+    height: 100px;
+    font-size: 2rem;
+    background-color: $clr1;
 }
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
     display: flex;
     align-items: center;
+    font-weight: bold;
 }
 
 .logo-name {
     align-self: center;
 }
-
+// .header-logo-img{
+//     height: 50%;
+// }
 .nav {
     width: 35%;
     justify-content: space-around;
@@ -33,6 +39,8 @@ a {
         border: none;
         outline: none;
         font-size: 18px;
+        font-weight: bold;
+        color: white;
     }
     button:hover {
         color: $clr1;
