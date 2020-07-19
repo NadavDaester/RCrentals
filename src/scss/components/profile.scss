@@ -4,20 +4,36 @@
     column-gap: 10px;
     row-gap: 1em;
     text-align: center;
+    min-height: 80vh;
     // margin: 0;
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        color: grey;
+    }
     .profile-cars{
      grid-column: span 2;
      text-align: center;
      display: grid;
      margin-top: 40px;
     }
-    .profile-nav *{
-     margin-top: 40px;
-     font-size: 2rem;
-     
-    }
+
     .profile-router{
+        font-size: 1.5rem;
+        max-width: 500px;
+        color: black;
         box-shadow: inset 0 -1px 0 0 #dddde5;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 0 30px;
+        margin-top: 40px;
+        
+    }
+    .profile-router i{
+     font-size: 2rem;
     }
     .profile-router:hover{
         cursor: pointer;
