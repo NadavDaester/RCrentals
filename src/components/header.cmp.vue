@@ -7,13 +7,15 @@
     <div class="flex nav">
       <router-link to="/">List your car</router-link>
       <router-link to="/about">About</router-link>
+      <router-link to="/car  ">All Cars</router-link>
+
       <template v-if="!loggedInUser">
         <router-link to="/login">Log In</router-link>
         <router-link to="/signUp">Sign Up</router-link>
       </template>
       <template v-else>
         <router-link :to="'/profile/'+loggedInUser._id">My Profile</router-link>
-        <button  @click="logout">Log out</button>
+        <button @click="logout">Log out</button>
       </template>
 
       <!-- <router-link to="/profile"> <img src="@/assets/default-user.jpg" alt=""> </router-link> -->

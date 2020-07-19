@@ -1,5 +1,12 @@
 .toy-filter{
 
+   .el-input__inner:focus {
+        border-color:$clr1;
+    }
+     .el-input__inner::placeholder{
+        color: $clr1;
+    }
+    
     .location{
         -webkit-appearance: none;
         background-color: #FFF;

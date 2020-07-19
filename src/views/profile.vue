@@ -27,6 +27,13 @@
         </div>
         <i class="el-icon-arrow-right"></i>
       </router-link>
+      <router-link :to="'/profile/myOrder/'+loggedInUser._id" class="col profile-router">
+        <div>
+          <i class="el-icon-s-order"></i>
+          My orders
+        </div>
+        <i class="el-icon-arrow-right"></i>
+      </router-link>
     </div>
     <router-view></router-view>
   </section>

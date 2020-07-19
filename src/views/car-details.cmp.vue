@@ -41,10 +41,10 @@
           <div class="payment-details flex">
             <h1>price: $ {{car.price}} /day</h1>
 
-            <button @click="toggleBookModal">book</button>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
+            <button @click="toggleBookModal">book</button>
           </div>
           {{car.owner.fulName}}
         </div>
