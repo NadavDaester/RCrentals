@@ -6,11 +6,11 @@
       <h2>{{loggedInUser.email}}</h2>
       <!-- <h3>incoming msgs</h3> -->
       <router-link
-        :to="'/profile/favoriteCar/'+loggedInUser.id"
+        :to="'/profile/favoriteCar/'+loggedInUser._id"
         class="col profile-router"
       >My favorite cars</router-link>
-      <router-link :to="'/profile/owncars/'+loggedInUser.id" class="col profile-router">My cars</router-link>
-      <router-link :to="'/profile/reviews/'+loggedInUser.id" class="col profile-router">My reviews</router-link>
+      <router-link :to="'/profile/owncars/'+loggedInUser._id" class="col profile-router">My cars</router-link>
+      <router-link :to="'/profile/reviews/'+loggedInUser._id" class="col profile-router">My reviews</router-link>
     </div>
     <router-view></router-view>
   </section>
