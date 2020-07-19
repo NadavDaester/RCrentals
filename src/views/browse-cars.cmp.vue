@@ -1,7 +1,8 @@
 <template>
   <section>
     <h1 class="title">Cars</h1>
-    <div class="app-container">
+    <div class="app-container"></div>
+    <div class="sub-container">
       <car-filter @filter="setFilter"></car-filter>
       <car-list @updateUserFavs="updateUserFavs" @removeCar="removeCar" :cars="cars"></car-list>
     </div>

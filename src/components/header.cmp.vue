@@ -7,7 +7,7 @@
     <div class="flex nav">
       <router-link to="/">List your car</router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/car  ">All Cars</router-link>
+      <router-link to="/car/  ">All Cars</router-link>
 
       <template v-if="!loggedInUser">
         <router-link to="/login">Log In</router-link>
