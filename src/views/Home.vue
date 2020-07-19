@@ -1,13 +1,15 @@
 <template>
   <section>
     <div class="bgc-img">
-      <div class="text-img">
-      </div>
+      <div class="text-img"></div>
     </div>
     <section class="flex home-section">
       <main class="home">
-          <input type="text" id="search" placeholder="Search" />
-        <h2>Browse by category</h2>
+        <input type="text" id="search" placeholder="Search" />
+        <div class="category-head flex space-between">
+          <h2>Browse by category</h2>
+          <router-link :to="'/car'">See all cars</router-link>
+        </div>
         <div class="browse-category flex wrap space-around">
           <div v-for="category in categorys" :category="category" :key="category">
             <router-link class="col main-categories-container" :to="'/car/'+ category">

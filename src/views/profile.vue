@@ -34,7 +34,7 @@
         </div>
         <i class="el-icon-arrow-right"></i>
       </router-link>
-      <router-link :to="'/profile/myOrder/'+loggedInUser._id" class="col profile-router">
+      <router-link :to="'/profile/requestedOrders/'+loggedInUser._id" class="col profile-router">
         <div>
           <i class="el-icon-collection"></i>
           Requested orders

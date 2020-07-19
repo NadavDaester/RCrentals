@@ -35,10 +35,6 @@
 }
 
 .browse-category {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    // grid-row-gap: 50px;
-    // grid-column-gap: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,17 +44,19 @@
     }
     div {
         border-radius: 5px;
-        // height: 380px;
         width: 292px;
+        transition: opacity 0.3s
     }
     div:hover {
         cursor: pointer;
+        opacity: 0.9;
     }
     div:hover h3 {
         color: $clr1;
     }
     h3 {
         font-size: 1.5rem;
+        color: black;
     }
 }
 .category-head{
