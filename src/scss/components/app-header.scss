@@ -29,7 +29,7 @@ a {
     text-decoration: none;
     font-size: 18px;
     a:hover {
-        color: $clr1;
+        color: goldenrod;
     }
     img {
         width: 50px;
@@ -41,8 +41,9 @@ a {
         font-size: 18px;
         font-weight: bold;
         color: white;
+        cursor: pointer;
     }
     button:hover {
-        color: $clr1;
+        color: goldenrod;
     }
 }
