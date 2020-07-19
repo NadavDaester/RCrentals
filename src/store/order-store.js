@@ -15,6 +15,7 @@ export const orderStore = {
             state.orders = orders;
         },
         addOrder(state, { savedOrder }) {
+            
             state.orders.push(savedOrder)
         },
         updateOrder(state, { savedOrder }) {
