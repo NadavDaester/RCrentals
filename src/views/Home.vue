@@ -2,13 +2,11 @@
   <section>
     <div class="bgc-img">
       <div class="text-img">
-        <h1>Way better than a rental car</h1>
-        <h3>Book unforgettable cars from trusted hosts around the world</h3>
-          <input type="text" id="search" placeholder="enter a city" />
       </div>
     </div>
     <section class="flex home-section">
       <main class="home">
+          <input type="text" id="search" placeholder="Search" />
         <h2>Browse by category</h2>
         <div class="browse-category flex wrap space-around">
           <div v-for="category in categorys" :category="category" :key="category">
@@ -20,7 +18,7 @@
         </div>
         <!-- <img :src="car.primaryImgUrl" height="250" /> -->
 
-        <h2>You might like</h2>
+        <h2>Top Rated</h2>
         <div class="might-like-category">
           <carPreview v-for="car in cars.slice(cars.length-3)" :car="car" :key="car._id"></carPreview>
         </div>
@@ -57,7 +55,7 @@ export default {
   },
   data() {
     return {
-      categorys: ["sport", "vans", "luxury", "convertible"]
+      categorys: ["sport", "costum", "luxury", "convertible"]
     };
   },
   created() {

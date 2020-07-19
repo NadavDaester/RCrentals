@@ -23,9 +23,6 @@
 @import './views/signin.scss';
 @import './views/car-details.scss';
 @import './views/browse-cars.scss';
-
-
-
 * {
     box-sizing: border-box;
     font-family: Opensans;
@@ -45,5 +42,5 @@ body {
 }
 
 .swal2-icon.swal2-success .swal2-success-ring {
-    border: .25em solid #593cfb63 !important;
+    border: .25em solid #2D383A !important;
 }

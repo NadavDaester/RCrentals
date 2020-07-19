@@ -5,16 +5,12 @@
     <div class="car-preview">
       <div class="card-img">
         <img
-          v-if="!isLiked&&loggedInUser"
-          @click="toggleLike"
-          class="like"
-          src="@/assets/img/empty-heart.png"
-        />
+            v-if="!isLiked&&loggedInUser" @click="toggleLike" class="like" src="@/assets/hearts/opa.png"/>
         <img
           v-else-if="isLiked&&loggedInUser"
           @click="toggleLike"
           class="like"
-          src="@/assets/img/red-heart.png"
+          src="@/assets/hearts/redheart.png"
         />
         <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
@@ -32,7 +28,6 @@
             
           </div>
         </div>
-        <button>For more details</button>
       </div>
     </div>
   </section>
