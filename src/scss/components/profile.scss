@@ -5,12 +5,14 @@
     row-gap: 1em;
     text-align: center;
     min-height: 80vh;
-    // margin: 0;
     h1 {
         font-size: 2rem;
     }
     h2 {
         color: grey;
+    }
+    .profile-nav{
+        margin-top: 30px;
     }
     .profile-cars {
         grid-column: span 2;
