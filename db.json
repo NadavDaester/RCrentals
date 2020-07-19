@@ -1102,64 +1102,7 @@
       "imgUrl": "url",
       "createdAt": 1123423423,
       "orders": [],
-      "favCars": [
-        {
-          "_id": "c102",
-          "owner": {
-            "_id": "u103",
-            "fullName": "nadav daester",
-            "imgUrl": "url"
-          },
-          "location": {
-            "city": "kiryat malachi",
-            "lat": 342343,
-            "lng": 45343
-          },
-          "tags": [
-            "luxury",
-            "vintage"
-          ],
-          "reviews": [
-            {
-              "id": "r104",
-              "txt": "These guys are amazing! Best rental experience of my life! Extremely accommodative when I needed to extend the trip and pickup and drop off was a breeze. Highly recommend . ",
-              "rating": 3,
-              "createdAt": 1585072468280,
-              "byUser": "minimalUser"
-            },
-            {
-              "id": "r105",
-              "txt": " Great car and great host! Would rent again in the future!!! ",
-              "rating": 5,
-              "createdAt": 1524072468280,
-              "byUser": "minimalUser"
-            }
-          ],
-          "desc": "the car has comfortable seats , big wheels",
-          "features": {
-            "seatsCount": 4,
-            "doorsCount": 4,
-            "kpl": 15
-          },
-          "price": 765,
-          "condition": "veteran",
-          "model": "2015",
-          "vendor": {
-            "company": "mazarati",
-            "series": "200"
-          },
-          "discount": {
-            "discountRate": 28,
-            "discountEnd": "1000*60*60*12"
-          },
-          "primaryImgUrl": "maserati1",
-          "imgUrls": [
-            "maserati2",
-            "maserati3",
-            "maserati4"
-          ]
-        }
-      ]
+      "favCars": []
     }
   ]
 }

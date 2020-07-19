@@ -2,10 +2,8 @@
   <section class="profile">
     <div class="profile-nav">
       <img src="../assets/default-user.jpg" width="150" />
-      <!-- <h1>Welcome</h1> -->
       <h1>Welcome {{loggedInUser.fullName}}</h1>
       <h2>{{loggedInUser.email}}</h2>
-      <!-- <h3>incoming msgs</h3> -->
       <router-link :to="'/profile/favoriteCar/'+loggedInUser._id" class="col profile-router">
         <div>
           <i class="el-icon-star-on"></i>
