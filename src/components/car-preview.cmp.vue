@@ -2,8 +2,8 @@
 
 <template>
   <section class="flex">
-    <div class="car-preview ">
-      <div class="card-img ">
+    <div class="car-preview">
+      <div class="card-img">
         <img
           v-if="!isLiked&&loggedInUser"
           @click="toggleLike"
@@ -23,7 +23,7 @@
           <img class="front-img" :src="getImgUrl(car.primaryImgUrl)" />
         </router-link>
       </div>
-  
+
       <div class="under-img flex">
         <div class="details flex">
           <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
@@ -35,8 +35,6 @@
         </div>
         <button>For more details</button>
       </div>
-      <!-- <img :src="require(`@/assets/img/${images[0]}.png`)" /> -->
-      <div class="actions flex"></div>
     </div>
   </section>
 </template>
@@ -56,14 +54,13 @@ export default {
   },
   methods: {
     toggleLike() {
-
       this.isLiked = !this.isLiked;
       this.$emit("updateUserFavs", this.car, this.isLiked);
     },
-      getImgUrl(imageName) {
-         var images = require.context('../assets/cars/', false, /\.jpg$/)
-         return images('./' + imageName + ".jpg")
-     },
+    getImgUrl(imageName) {
+      var images = require.context("../assets/cars/", false, /\.jpg$/);
+      return images("./" + imageName + ".jpg");
+    }
   },
 
   computed: {

@@ -6,14 +6,41 @@
   </div>
 </template>
 <script>
+  import Swal from 'sweetalert2'
   import appHeader from './components/header.cmp.vue'
   import appFooter from './components/footer.cmp.vue'
+  import {eventBus} from './main-services/eventBus.js'
 export default {
 
 
   components :{
     appHeader,
     appFooter
+  },
+  created(){
+
+     eventBus.$on('sendSwal',this.swalMsg)
+
+  },methods:{
+    swalMsg(msg){
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 100000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Signed in successfully'
+})
+
+    }
   }
 }
 </script>>
