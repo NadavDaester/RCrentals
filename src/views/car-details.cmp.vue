@@ -15,11 +15,13 @@
         <div class="car-info flex">
           <div class="details">
             <div>
-              <h1>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h1>
+              <h1 class="capi">{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h1>
               <h3>
                 {{car.reviews[0].rating}}
                 <span class="star">★</span>
+                <span class="capi">
                 (50) {{car.owner.fullName}}
+                </span>
               </h3>
               <div class="features grid">
                 <span>
@@ -43,12 +45,12 @@
             </div>
           </div>
           <div class="payment-details flex">
-            <h1>price: $ {{car.price}} /day</h1>
+            <h1>Price: $ {{car.price}} / Day</h1>
 
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
-            <button @click="toggleBookModal">book</button>
+            <button @click="toggleBookModal">Book</button>
           </div>
           {{car.owner.fulName}}
         </div>
