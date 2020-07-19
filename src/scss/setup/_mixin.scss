@@ -17,6 +17,12 @@
       @content;
     }
   }
+
+  @mixin for-1100-layout {
+    @media (max-width: 1100px) {
+      @content;
+    }
+  }
   
   @mixin for-wide-layout {
     @media (max-width: $wide-breakpoint) {

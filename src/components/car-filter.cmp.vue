@@ -1,65 +1,67 @@
 <template>
   <section>
-    <div class="toy-filter flex">
-      <div>
-        <span>search location</span>
-        <input
-          @input="setFilter"
-          type="text"
-          placeholder="enter city"
-          class="location"
-          v-model="filterBy.location"
-        />
-      </div>
-      <div>
-        <span>sort by model</span>
-        <el-select
-          class="select-type"
-          @change="setFilter"
-          v-model="filterBy.model"
-          placeholder="Select"
-        >
-          <el-option
-            v-for="item in modelOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </div>
-      <div>
-        <span>sort by price</span>
+    <div class="filter-container flex">
+      <div class="toy-filter flex">
+        <div>
+          <span>search location</span>
+          <input
+            @input="setFilter"
+            type="text"
+            placeholder="enter city"
+            class="location"
+            v-model="filterBy.location"
+          />
+        </div>
+        <div>
+          <span>sort by model</span>
+          <el-select
+            class="select-type"
+            @change="setFilter"
+            v-model="filterBy.model"
+            placeholder="Select"
+          >
+            <el-option
+              v-for="item in modelOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <div>
+          <span>sort by price</span>
 
-        <el-select
-          class="select-type"
-          @change="setFilter"
-          v-model="filterBy.price"
-          placeholder="Select"
-        >
-          <el-option
-            v-for="item in priceOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </div>
-      <div>
-        <span>sort by type</span>
+          <el-select
+            class="select-type"
+            @change="setFilter"
+            v-model="filterBy.price"
+            placeholder="Select"
+          >
+            <el-option
+              v-for="item in priceOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
+        <div>
+          <span>sort by type</span>
 
-        <el-select
-          class="select-type"
-          @change="setFilter"
-          v-model="filterBy.type"
-          placeholder="Select"
-        >
-          <el-option
-            v-for="item in typeOptions"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
+          <el-select
+            class="select-type"
+            @change="setFilter"
+            v-model="filterBy.type"
+            placeholder="Select"
+          >
+            <el-option
+              v-for="item in typeOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </div>
       </div>
     </div>
   </section>

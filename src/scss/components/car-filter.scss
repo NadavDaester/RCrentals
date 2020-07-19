@@ -17,4 +17,36 @@
         transition: border-color .2s cubic-bezier(.645,.045,.355,1);
         width: 221px;
     }
+
+    @include for-normal-layout {
+       display: grid;
+       grid-template-columns: repeat(2,250px);
+      }
+      @include for-narrow-layout {
+          display: flex;
+          justify-content: center;
+        flex-direction: column;
+        background-color: yellowgreen;
+        
+           }
+
+
+        input{
+            margin-top: 5px;
+        }
 }
+
+
+.filter-container{
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+ 
+
