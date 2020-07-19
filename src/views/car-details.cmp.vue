@@ -16,7 +16,11 @@
           <div class="details">
             <div>
               <h1>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</h1>
-              <h3>{{car.reviews[0].rating}}<span class="star">★</span>(50) {{car.owner.fullName}}</h3>
+              <h3>
+                {{car.reviews[0].rating}}
+                <span class="star">★</span>
+                (50) {{car.owner.fullName}}
+              </h3>
               <div class="features grid">
                 <span>
                   <img src="@/assets/img/seat.png" />
@@ -93,7 +97,7 @@
 
 <script>
 import { carService } from "../services/car-service.js";
-import {eventBus} from '../main-services/eventBus.js'
+import { eventBus } from "../main-services/eventBus.js";
 
 export default {
   name: "car-details",
@@ -105,7 +109,7 @@ export default {
       fullName: "",
       phoneNumber: "",
       order: {
-        pickupDate: new Date().toLocaleDateString(),
+        pickupDate: "",
         daysCount: "1"
       }
     };
@@ -137,11 +141,13 @@ export default {
     saveOrder() {
       this.order.price = this.totalPrice;
       this.order.owner = this.car.owner;
+      // this.order.pickupDate = this.order.pickupDate.toLocaleDateString();
       if (this.loggedInUser) {
         const user = {
           email: this.loggedInUser.email,
           fullName: this.loggedInUser.fullName,
-          imgUrl: this.loggedInUser.imgUrl
+          imgUrl: this.loggedInUser.imgUrl,
+          _id: this.loggedInUser._id
         };
         this.order.buyer = user;
         this.$store.dispatch({
@@ -155,7 +161,7 @@ export default {
           order: this.order
         });
       }
-       eventBus.$emit('sendSwal','Booked !')
+      eventBus.$emit("sendSwal", "Booked !");
       this.toggleBookModal();
     }
   },

@@ -13,6 +13,7 @@ async function _add(order) {
     // console.log(user);
 
     // await httpService.put(`user/${user._id}`, user)
+    console.log(order);
     return await httpService.post(`order/`, order)
 
 }
