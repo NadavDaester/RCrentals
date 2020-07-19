@@ -19,9 +19,7 @@
               <h3>
                 {{car.reviews[0].rating}}
                 <span class="star">★</span>
-                <span class="capi">
-                (50) {{car.owner.fullName}}
-                </span>
+                <span class="capi">(50) {{car.owner.fullName}}</span>
               </h3>
               <div class="features grid">
                 <span>
@@ -113,7 +111,7 @@ export default {
       order: {
         pickupDate: "",
         daysCount: "1",
-        order: this.$route.params.id
+        carId: this.$route.params.id
       }
     };
   },
