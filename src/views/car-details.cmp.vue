@@ -110,7 +110,8 @@ export default {
       phoneNumber: "",
       order: {
         pickupDate: "",
-        daysCount: "1"
+        daysCount: "1",
+        carId: this.$route.params.id
       }
     };
   },
