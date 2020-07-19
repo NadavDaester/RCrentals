@@ -39,3 +39,11 @@ body {
     color: $clr1 !important;
     border-color: $clr1 !important;
 }
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+    background-color: $clr1;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border: .25em solid #593cfb63 !important;
+}
