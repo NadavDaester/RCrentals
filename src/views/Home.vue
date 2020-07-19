@@ -16,7 +16,7 @@
           <div v-for="category in categorys" :category="category" :key="category">
             <router-link class="col main-categories-container" :to="'/car/'+ category">
               <!-- <img src="../assets/hero3.jpg" height="180" /> -->
-              <img class="main-categories-img" :src="getImgUrl(category)"/>
+              <img class="main-categories-img" :src="getImgUrl(category)" />
               <h3>{{category}}</h3>
             </router-link>
           </div>
@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      categorys: ["sport", "vintage", "luxury", "convertible"]
+      categorys: ["sport", "vans", "luxury", "convertible"]
     };
   },
   created() {
