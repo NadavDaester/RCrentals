@@ -109,7 +109,7 @@ export default {
       fullName: "",
       phoneNumber: "",
       order: {
-        pickupDate: new Date().toLocaleDateString(),
+        pickupDate: "",
         daysCount: "1"
       }
     };
@@ -141,6 +141,7 @@ export default {
     saveOrder() {
       this.order.price = this.totalPrice;
       this.order.owner = this.car.owner;
+      // this.order.pickupDate = this.order.pickupDate.toLocaleDateString();
       if (this.loggedInUser) {
         const user = {
           email: this.loggedInUser.email,
