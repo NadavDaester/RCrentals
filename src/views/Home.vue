@@ -14,9 +14,9 @@
         <h2>Browse by category</h2>
         <div class="browse-category flex wrap space-around">
           <div v-for="category in categorys" :category="category" :key="category">
-            <router-link class="col" :to="'/car/'+ category">
+            <router-link class="col main-categories-container" :to="'/car/'+ category">
               <!-- <img src="../assets/hero3.jpg" height="180" /> -->
-              <img :src="getImgUrl(category)" height="180" width="280" />
+              <img class="main-categories-img" :src="getImgUrl(category)"/>
               <h3>{{category}}</h3>
             </router-link>
           </div>

@@ -29,6 +29,7 @@
     .big {
         grid-row: span 2;
         grid-column: span 2;
+        object-fit: cover;
         width: rem(610px);
         height: rem(410px);
     }
@@ -36,6 +37,7 @@
     .small {
         width: rem(300px);
         height: rem(200px);
+        object-fit: cover;
     }
     
     .car-container {

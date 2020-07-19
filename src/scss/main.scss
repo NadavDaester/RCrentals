@@ -31,4 +31,7 @@ body {
     margin: 0;
 }
 
-
+.swal2-icon.swal2-success {
+    color: $clr1 !important;
+    border-color: $clr1 !important;
+}

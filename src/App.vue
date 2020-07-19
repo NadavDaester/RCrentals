@@ -23,13 +23,23 @@ export default {
 
   },methods:{
     swalMsg(msg){
-      Swal.fire({
-      position: 'top-end',
-      icon: 'success',
-      title: msg,
-      showConfirmButton: false,
-      timer: 1500
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 100000,
+    timerProgressBar: true,
+    onOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
 })
+
+Toast.fire({
+  icon: 'success',
+  title: 'Signed in successfully'
+})
+
     }
   }
 }
