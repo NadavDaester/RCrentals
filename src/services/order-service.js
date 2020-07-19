@@ -3,7 +3,8 @@ import userService from '../services/user-service.js'
 export default {
     saveOrder,
     remove,
-    getOrders
+    getOrders,
+    getOrdersByBuyerId
 }
 async function _add(order) {
 
@@ -19,6 +20,9 @@ async function _add(order) {
 
 async function getOrders() {
     return await httpService.get(`order`)
+}
+async function getOrdersByBuyerId(id) {
+    return await httpService.get(`order` + `?buyer._id=${id}`)
 }
 
 async function remove(id) {

@@ -9,6 +9,7 @@ import carDetails from '../views/car-details.cmp.vue';
 import ownedCars from '../components/owned-cars.cmp.vue';
 import favCars from '../components/favorite-cars.cmp.vue';
 import userReviews from '../components/user-reviews.cmp.vue';
+import userOrders from '../components/user-orders.cmp.vue';
 Vue.use(VueRouter)
 
 const routes = [{
@@ -45,7 +46,13 @@ const routes = [{
                 path:'/profile/reviews/:id?',
                 name:'user-reviews',
                 component:userReviews
+            },
+            {
+                path:'/profile/myOrder/:id?',
+                name:'user-order',
+                component:userOrders
             }
+
         ]
     },
     {
