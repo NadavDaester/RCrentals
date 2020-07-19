@@ -13,15 +13,14 @@
         <div class="browse-category flex wrap space-around">
           <div v-for="category in categorys" :category="category" :key="category">
             <router-link class="col main-categories-container" :to="'/car/'+ category">
-              <!-- <img src="../assets/hero3.jpg" height="180" /> -->
               <img class="main-categories-img" :src="getImgUrl(category)" />
-              <h3>{{category}}</h3>
+              <h3 class="capi">{{category}}</h3>
             </router-link>
           </div>
         </div>
         <!-- <img :src="car.primaryImgUrl" height="250" /> -->
 
-        <h2>you might like</h2>
+        <h2>You might like</h2>
         <div class="might-like-category">
           <carPreview v-for="car in cars.slice(cars.length-3)" :car="car" :key="car._id"></carPreview>
         </div>

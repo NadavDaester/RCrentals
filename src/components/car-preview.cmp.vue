@@ -16,8 +16,6 @@
           class="like"
           src="@/assets/img/red-heart.png"
         />
-        <!-- <span v-if="!isLiked" @click="toggleLike" class="like">🤍</span>
-        <span v-else @click="toggleLike" class="like">❤️</span>-->
         <div class="price">${{car.price}}/day</div>
         <router-link :to="'/car/details/'+car._id">
           <img class="front-img" :src="getImgUrl(car.primaryImgUrl)" />
@@ -26,11 +24,12 @@
 
       <div class="under-img flex">
         <div class="details flex">
-          <div>{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
+          <div class="capi">{{car.vendor.company}} {{car.vendor.series}} {{car.model}}</div>
           <div>
             {{car.reviews[0].rating}}
             <span class="star">★</span>
-            (50) {{car.owner.fullName}}
+            <span class="capi">(50) {{car.owner.fullName}}</span>
+            
           </div>
         </div>
         <button>For more details</button>

@@ -3,7 +3,7 @@
     <div class="filter-container flex">
       <div class="toy-filter flex">
         <div>
-          <span>search location</span>
+          <span>Search Location</span>
           <input
             @input="setFilter"
             type="text"
@@ -13,7 +13,7 @@
           />
         </div>
         <div>
-          <span>sort by model</span>
+          <span>Sort By Model</span>
           <el-select
             class="select-type"
             @change="setFilter"
@@ -29,7 +29,7 @@
           </el-select>
         </div>
         <div>
-          <span>sort by price</span>
+          <span>Sort By Price</span>
 
           <el-select
             class="select-type"
@@ -46,7 +46,7 @@
           </el-select>
         </div>
         <div>
-          <span>sort by type</span>
+          <span>Sort By Type</span>
 
           <el-select
             class="select-type"
@@ -55,6 +55,7 @@
             placeholder="Select"
           >
             <el-option
+            class="capi"
               v-for="item in typeOptions"
               :key="item.value"
               :label="item.label"
@@ -82,47 +83,47 @@ export default {
       modelOptions: [
         {
           value: "asc",
-          label: "old to new"
+          label: "Old To New"
         },
         {
           value: "desc",
-          label: "new to old"
+          label: "New To Old"
         }
       ],
       priceOptions: [
         {
           value: "asc",
-          label: "cheap to expensive"
+          label: "Low To High"
         },
         {
           value: "desc",
-          label: "expensive to cheap"
+          label: "High To Low"
         }
       ],
       typeOptions: [
         {
           value: "",
-          label: "all"
+          label: "All"
         },
         {
           value: "exotic",
-          label: "exotic"
+          label: "Exotic"
         },
         {
           value: "classic",
-          label: "classic"
+          label: "Classic"
         },
         {
           value: "minivan",
-          label: "minivan"
+          label: "Minivan"
         },
         {
           value: "vans",
-          label: "vans"
+          label: "Vans"
         },
         {
           value: "trucks",
-          label: "trucks"
+          label: "Trucks"
         }
       ]
     };

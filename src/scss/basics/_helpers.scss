@@ -11,20 +11,29 @@
     text-align: center;
     font-size: 35px;
 }
-.space-between{
+
+.space-between {
     justify-content: space-between;
 }
-.wrap{
+
+.wrap {
     flex-wrap: wrap;
 }
-.space-around{
+
+.space-around {
     justify-content: space-around;
 }
-.center{
+
+.center {
     text-align: center;
 }
-.col{
+
+.col {
     flex-direction: column;
+}
+
+.capi {
+    text-transform: capitalize;
 }
 
 // media-helpers
