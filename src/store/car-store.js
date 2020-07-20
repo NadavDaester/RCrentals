@@ -22,7 +22,7 @@ export const carStore = {
         },
         addCar(state, { savedCar }) {
             state.cars.push(savedCar)
-        },  
+        },
         updateCar(state, { savedCar }) {
             const idx = state.cars.findIndex(car => car._id === savedCar._id)
             state.cars.splice(idx, 1, savedCar)

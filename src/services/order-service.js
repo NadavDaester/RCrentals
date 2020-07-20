@@ -7,12 +7,6 @@ export default {
     getOrdersByBuyerId
 }
 async function _add(order) {
-
-    const user = await userService.getById(order.owner._id)
-    // user.orders.push(order)
-    // console.log(user);
-
-    // await httpService.put(`user/${user._id}`, user)
     console.log(order);
     return await httpService.post(`order/`, order)
 
@@ -31,7 +25,6 @@ async function remove(id) {
 }
 
 function saveOrder(order) {
-    console.log(order);
     return (order._id) ? _update(order) : _add(order)
 }
 

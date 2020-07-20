@@ -31,7 +31,6 @@ export default {
       this.$router.push("/car/edit");
     },
     updateUserFavs(car, isLiked) {
-      console.log(car, isLiked);
       this.$emit("updateUserFavs", car, isLiked);
     }
   },

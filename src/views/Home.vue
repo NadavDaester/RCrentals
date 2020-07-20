@@ -4,7 +4,7 @@
       <div class="text-img">
         <h1>Way better than a rental car</h1>
         <h3>Book unforgettable cars from trusted hosts around the world</h3>
-          <input type="text" id="search" placeholder="enter a city" />
+        <input type="text" id="search" placeholder="enter a city" />
       </div>
     </div>
     <section class="flex home-section">
@@ -22,7 +22,12 @@
 
         <h2>You might like</h2>
         <div class="might-like-category">
-          <carPreview v-for="car in cars.slice(cars.length-3)" :car="car" :key="car._id"></carPreview>
+          <carPreview
+            @updateUserFavs="updateUserFavs"
+            v-for="car in cars.slice(cars.length-3)"
+            :car="car"
+            :key="car._id"
+          ></carPreview>
         </div>
         <div>
           <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
@@ -67,20 +72,24 @@ export default {
     getImgUrl(imageName) {
       var images = require.context("../assets/cars/", false, /\.jpg$/);
       return images("./" + imageName + ".jpg");
+    },
+    updateUserFavs(car, isLiked) {
+      console.log(isLiked);
+      this.$store.dispatch({
+        type: "updateFavs",
+        car,
+        isLiked,
+        user: this.loggedInUser
+      });
     }
-    // getUniqueList(arr) {
-    //   return Array.from(new Set(arr));
-    // }
   },
   computed: {
     cars() {
       return this.$store.getters.cars;
+    },
+   loggedInUser() {
+      return this.$store.getters.loggedInUser;
     }
-    // categorys() {
-    //   return this.getUniqueList(
-    //     this.$store.getters.cars.map(c => c.tags).flat()
-    //   );
-    // }
   }
 };
 </script>

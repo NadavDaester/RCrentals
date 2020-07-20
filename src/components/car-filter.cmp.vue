@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="filter-container flex">
-      <div class="toy-filter flex">
+      <div class="car-filter flex">
         <div>
           <span>Search Location</span>
           <input
@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: "toy-filter",
+  name: "car-filter",
   data() {
     return {
       filterBy: {
@@ -129,8 +129,8 @@ export default {
     };
   },
   computed: {
-    toys() {
-      return this.$store.getters.toys;
+    cars() {
+      return this.$store.getters.cars;
     }
   },
   methods: {

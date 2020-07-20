@@ -29,7 +29,6 @@
             {{car.reviews[0].rating}}
             <span class="star">★</span>
             <span class="capi">(50) {{car.owner.fullName}}</span>
-            
           </div>
         </div>
         <button>For more details</button>
@@ -48,28 +47,41 @@ export default {
   },
   data() {
     return {
-      isLiked: false
+      isLike: null
     };
   },
+
   methods: {
     toggleLike() {
-      this.isLiked = !this.isLiked;
-      this.$emit("updateUserFavs", this.car, this.isLiked);
+      console.log(this.isLike, this.isLiked);
+      this.isLike = !this.isLike;
+      this.$emit("updateUserFavs", this.car, this.isLike);
     },
     getImgUrl(imageName) {
       var images = require.context("../assets/cars/", false, /\.jpg$/);
       return images("./" + imageName + ".jpg");
     }
   },
+  created() {
+    this.isLike = this.isLiked;
+  },
 
   computed: {
     loggedInUser() {
-      console.log(this.$store.getters.loggedInUser);
       return this.$store.getters.loggedInUser;
+    },
+    isLiked() {
+      if (this.loggedInUser) {
+        return this.loggedInUser.favCars.some(
+          favCar => favCar._id === this.car._id
+        );
+      } else {
+        return false;
+      }
     }
   }
 };
-</script>
+</script> 
 
 <style>
 </style>

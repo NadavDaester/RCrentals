@@ -33,7 +33,6 @@ export default {
   },
   computed: {
     loggedInUser() {
-      // console.log(this.$store.getters.loggedInUser, "jgyj");
       return this.$store.getters.loggedInUser;
     }
   }

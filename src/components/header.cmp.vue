@@ -28,13 +28,12 @@ export default {
   name: "app-header",
   methods: {
     logout() {
-      console.log("ff");
+      ("ff");
       this.$store.dispatch({ type: "logout" });
     }
   },
   computed: {
     loggedInUser() {
-      console.log(this.$store.getters.loggedInUser, "jgyj");
       return this.$store.getters.loggedInUser;
     }
   }

@@ -111,7 +111,8 @@ export default {
       order: {
         pickupDate: "",
         daysCount: "1",
-        carId: this.$route.params.id
+        carId: this.$route.params.id,
+        status:'pending'
       }
     };
   },
