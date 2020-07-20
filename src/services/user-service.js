@@ -6,7 +6,7 @@ export default {
     login,
     logout,
     signup,
-    getUsers,
+    query,
     getById,
     remove,
     update,
@@ -27,31 +27,25 @@ function update(user) {
 }
 
 async function login(userCred) {
-    console.log(userCred);
-    const users = await getUsers()
-    console.log(users);
-    const user = users.find(user => user.email === userCred.email)
-    if (user.password === userCred.password)
-        return user
-    // const user = await httpService.post('auth/user', userCred)
-    // return _handleLogin(user)
+    const user = await httpService.post('auth/login', userCred)
+    return _handleLogin(user)
+
+
 }
-
-
-
 
 async function signup(userCred) {
-    users.push(userCred)
-    return userCred
-    // const user = await httpService.post('auth/signup', userCred)
-    // return _handleLogin(user)
-}
-async function logout() {
-    // await httpService.post('auth/logout');
-    // sessionStorage.clear();
+    const user = await httpService.post('auth/signup', userCred)
+    console.log('signup', userCred);
+    return _handleLogin(user)
 }
 
-function getUsers() {
+
+async function logout() {
+    await httpService.post('auth/logout');
+    sessionStorage.clear();
+}
+
+function query() {
     return httpService.get('user')
 }
 
@@ -66,7 +60,18 @@ function getLoggedinUser() {
     return JSON.parse(user);
 }
 
-async function updateFavs(user) {
+async function updateFavs(car, isLiked, user) {
+    console.log(user);
+    if (isLiked) {
+        if (user.favCars.some(favCar => favCar._id === car._id)) return
+        user.favCars.push(car)
+    } else {
+        const idx = user.favCars.findIndex(favCar => favCar._id === car._id)
+        console.log(idx);
+        user.favCars.splice(idx, 1)
+        console.log(user);
+    }
+    _handleLogin(user)
     return await httpService.put(`user/${user._id}`, user)
 }
 

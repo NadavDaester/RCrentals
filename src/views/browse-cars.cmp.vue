@@ -29,6 +29,7 @@ export default {
       // this.$store.dispatch({ type: 'loadCars' })
     },
     updateUserFavs(car, isLiked) {
+      console.log(isLiked);
       this.$store.dispatch({
         type: "updateFavs",
         car,

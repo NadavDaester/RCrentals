@@ -14,6 +14,11 @@
 import userService from "../services/user-service";
 export default {
   name: "favorite-cars",
+  props: {
+    info: {
+      type: Object
+    }
+  },
   data() {
     return {
       favCars: []
@@ -26,9 +31,10 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params);
-    const userId = this.$route.params.id;
-    userService.getById(userId).then(user => (this.favCars = user.favCars));
+    this.favCars = this.info.favCars;
+    // console.log(this.$route.params);
+    // const userId = this.$route.params.id;
+    // userService.getById(userId).then(user => (this.favCars = user.favCars));
   }
 };
 </script>

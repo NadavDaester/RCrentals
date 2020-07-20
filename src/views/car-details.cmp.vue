@@ -99,7 +99,8 @@ export default {
       order: {
         pickupDate: "",
         returnDate: "",
-        carId: this.$route.params.id
+        carId: this.$route.params.id,
+        status:'pending'
       }
     };
   },

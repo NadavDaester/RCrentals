@@ -10,6 +10,7 @@
           <h2>Browse by category</h2>
           <router-link :to="'/car'">See all cars</router-link>
         </div>
+        <h1>hhdaihhiadaihiodhai</h1>
         <div class="browse-category flex wrap space-around">
           <div v-for="category in categorys" :category="category" :key="category">
             <router-link class="col main-categories-container" :to="'/car/'+ category">
@@ -22,7 +23,12 @@
 
         <h2>Top Rated</h2>
         <div class="might-like-category">
-          <carPreview v-for="car in cars.slice(cars.length-3)" :car="car" :key="car._id"></carPreview>
+          <carPreview
+            @updateUserFavs="updateUserFavs"
+            v-for="car in cars.slice(cars.length-3)"
+            :car="car"
+            :key="car._id"
+          ></carPreview>
         </div>
         <div>
           <h2 class="center">Discover the world’s largest car sharing marketplace</h2>
@@ -67,20 +73,24 @@ export default {
     getImgUrl(imageName) {
       var images = require.context("../assets/cars/", false, /\.jpg$/);
       return images("./" + imageName + ".jpg");
+    },
+    updateUserFavs(car, isLiked) {
+      console.log(isLiked);
+      this.$store.dispatch({
+        type: "updateFavs",
+        car,
+        isLiked,
+        user: this.loggedInUser
+      });
     }
-    // getUniqueList(arr) {
-    //   return Array.from(new Set(arr));
-    // }
   },
   computed: {
     cars() {
       return this.$store.getters.cars;
+    },
+   loggedInUser() {
+      return this.$store.getters.loggedInUser;
     }
-    // categorys() {
-    //   return this.getUniqueList(
-    //     this.$store.getters.cars.map(c => c.tags).flat()
-    //   );
-    // }
   }
 };
 </script>
