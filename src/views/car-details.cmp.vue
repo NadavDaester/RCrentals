@@ -45,7 +45,17 @@
           <div class="payment-details flex">
             <h2>location: {{car.location.city}}</h2>
             <h1>Price: $ {{car.price}} / Day</h1>
-
+            <div>
+              <label>Pick Up Date</label>
+            <input v-model="order.pickupDate" type="date">
+            </div>
+            <div>
+              <label>Return Date</label>
+              <input min="20"  v-model="order.returnDate" type="date">
+              <p v-if="totalPrice">
+                 Total Price:  ${{totalPrice}}
+                </p>
+            </div>
             <span class="free-cancellation">
               <img src="@/assets/img/like.png" /> Free cancellation
             </span>
@@ -58,7 +68,7 @@
           <div v-for="review in car.reviews" :key="review.id" class="review flex">
             <img src alt="userImg " />
             <div class="review-details flex">
-              <span>{{review.rating}}⭐</span>
+                <span class="star">★</span>
               <span class="reviwer-name">{{review.byUser}}</span>
 
               <span class="reviwe-time">{{new Date(review.createdAt).toLocaleDateString()}}</span>
@@ -69,37 +79,14 @@
       </div>
     </div>
 
-    <div class="book-modal" v-if="bookModal">
-      <button @click="toggleBookModal">X</button>
-      <div class="flex booking">
-        <label>Full Name</label>
-        <input v-model="fullName" class="signup-form-group" type="text" />
-        <label v-if="!loggedInUser">Phone Number</label>
-        <input type="tel" v-if="!loggedInUser" v-model="phoneNumber" />
-        <label>Email</label>
-        <input v-model="email" class="signup-form-group" type="email" />
-        <label>Pick up date:</label>
-        <input type="date" v-model="order.pickupDate" />
-        <label>
-          Days:
-          <input class="number" min="1" type="number" v-model="order.daysCount" />
-        </label>
-        <div class="flex booking-button">
-          <p>
-            Total Price : ${{totalPrice}}
-            <span>Only!</span>
-          </p>
-          <button @click="saveOrder">Book Now !</button>
-        </div>
-      </div>
-    </div>
+    <guest-modal :totalPrice="totalPrice" @close="saveOrder" v-if="bookModal"></guest-modal>
   </section>
 </template>
 
 <script>
 import { carService } from "../services/car-service.js";
 import { eventBus } from "../main-services/eventBus.js";
-
+import guestModal from '../components/modal.vue'
 export default {
   name: "car-details",
   data() {
@@ -111,7 +98,7 @@ export default {
       phoneNumber: "",
       order: {
         pickupDate: "",
-        daysCount: "1",
+        returnDate: "",
         carId: this.$route.params.id
       }
     };
@@ -128,19 +115,45 @@ export default {
       console.log(this.car.imgUrls, this.car.primaryImgUrl);
     },
     toggleBookModal() {
-      if (this.loggedInUser) {
-        this.email = this.loggedInUser.email;
-        this.phoneNumber = this.loggedInUser.phoneNumber;
-        this.fullName = this.loggedInUser.fullName;
+      if(!this.order.pickupDate||!this.order.returnDate){
+         eventBus.$emit("sendSwal", "Please fill the form !",'warning');
+        return
       }
-      this.bookModal = !this.bookModal;
+      if (!this.loggedInUser) {
+        this.bookModal = !this.bookModal;
+      }else{
+        if(!this.order.pickupDate,!this.order.returnDate){
+           eventBus.$emit("sendSwal", "Please fill the form !",'warning');
+          return 
+        }
+        this.order={
+         price: this.totalPrice,
+          buyer:{
+            email:this.loggedInUser.email,
+            fullName:this.loggedInUser.fullName,
+            imgUrl:this.loggedInUser.imgUrl
+          },
+          pickupDate:this.order.pickupDate,
+          returnDate:this.order.returnDate,
+          owner:this.car.owner
+        }
+        console.log(this.order);
+        eventBus.$emit("sendSwal", "Booked !",'success');
+        this.saveOrder()
+      }
     },
     getImgUrl(imageName) {
       var images = require.context("../assets/cars/", false, /\.jpg$/);
       return images("./" + imageName + ".jpg");
     },
-
-    saveOrder() {
+    saveOrder(order) {
+      if(!order){
+        this.toggleBookModal()
+        return
+      }
+      if(!order.fullName||!order.email){
+         return
+      }
       this.order.price = this.totalPrice;
       this.order.owner = this.car.owner;
       // this.order.pickupDate = this.order.pickupDate.toLocaleDateString();
@@ -163,7 +176,7 @@ export default {
           order: this.order
         });
       }
-      eventBus.$emit("sendSwal", "Booked !");
+      eventBus.$emit("sendSwal", "Booked !",'success');
       this.toggleBookModal();
     }
   },
@@ -172,10 +185,13 @@ export default {
       return this.$store.getters.loggedInUser;
     },
     totalPrice() {
-      return this.car.price * this.order.daysCount;
+      var pickupDate=new Date(this.order.pickupDate).getTime()
+      var returnDate=new Date( this.order.returnDate).getTime()
+      var days=(returnDate-pickupDate)/(60*60*24*1000);
+      return this.car.price *days;
     }
   },
-  components: {}
+  components: {guestModal}
 };
 </script>
 

@@ -24,10 +24,10 @@ export default {
      eventBus.$on('sendSwal',this.swalMsg)
 
   },methods:{
-    swalMsg(msg){
+    swalMsg(msg,sentIcon){
     const Toast = Swal.mixin({
     toast: true,
-    position: 'top-end',
+    position: 'center',
     showConfirmButton: false,
     timer: 1000,
     timerProgressBar: true,
@@ -38,8 +38,8 @@ export default {
 })
 
 Toast.fire({
-  icon: 'success',
-  title: 'Signed in successfully'
+  icon: sentIcon,
+  title: msg
 })
 
     }

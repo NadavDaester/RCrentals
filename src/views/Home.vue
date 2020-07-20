@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      categorys: ["sport", "costum", "luxury", "convertible"]
+      categorys: ["sport", "custom", "luxury", "convertible"]
     };
   },
   created() {
