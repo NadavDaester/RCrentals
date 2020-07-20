@@ -3,7 +3,7 @@
     <h1>Owned cars:</h1>
     <div v-for="car in cars" :car="car" :key="car._id">
       <router-link :to="'/car/details/'+ car._id" class="col">
-        <img :src="getImgUrl(car.primaryImgUrl)" height="200" />
+        <img :src="require(`@/assets/cars/${car.primaryImgUrl}.jpg`)" height="200" />
         <h2>{{car.vendor.company}} {{car.vendor.series}}</h2>
         <h2>{{car.location.city}}</h2>
       </router-link>
@@ -15,6 +15,11 @@
 import { carService } from "../services/car-service.js";
 export default {
   name: "owned-cars",
+  props:{
+    info:{
+      type:Object
+    }
+  },
   data() {
     return {
       cars: []
@@ -23,18 +28,20 @@ export default {
 
   methods: {
     getImgUrl(imageName) {
-      var images = require.context("../assets/cars/", false, /\.jpg$/);
+      var images = require.context("@/assets/cars/", false, /\.jpg$/);
       return images("./" + imageName + ".jpg");
     }
   },
   created() {
-    const userId = this.$route.params.id;
-    carService.getByOwnerId(userId).then(cars => (this.cars = cars));
+    this.cars = this.info.ownedCars
+    // const userId = this.$route.params.id;
+    // carService.getByOwnerId(userId).then(cars => (this.cars = cars));
   },
   computed: {
-    loggedInUser() {
-      return this.$store.getters.loggedInUser;
-    }
+    // loggedInUser() {
+    //   console.log(this.$store.getters.loggedInUser, "jgyj");
+    //   return this.$store.getters.loggedInUser;
+    // }
   }
 };
 </script>

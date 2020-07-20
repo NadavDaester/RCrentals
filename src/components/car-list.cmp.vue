@@ -1,7 +1,6 @@
 
 <template >
   <section class="car-list flex">
-    <h1 class="title-list">type:</h1>
     <div class="cards-container grid">
       <car-preview
         class="car-card"

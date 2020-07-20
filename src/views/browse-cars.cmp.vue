@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1 class="title">Cars</h1>
+    <h1 class="title capi">{{category}} Cars</h1>
     <div class="app-container"></div>
     <div class="sub-container">
       <car-filter @filter="setFilter"></car-filter>
@@ -13,12 +13,12 @@
 export default {
   name: "browse-cars",
   created() {
-    // const category = this.$route.params.category;
+    this.category = this.$route.params.category;
     this.$store.dispatch({ type: "loadCars" });
     console.log("car");
   },
   data() {
-    return {};
+    return {category:""};
   },
   methods: {
     removeCar(id) {

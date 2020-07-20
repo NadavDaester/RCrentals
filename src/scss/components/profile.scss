@@ -1,45 +1,55 @@
-.profile{
+.profile {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 10px;
     row-gap: 1em;
     text-align: center;
     min-height: 80vh;
-    // margin: 0;
-    h1{
+    h1 {
         font-size: 2rem;
     }
-    h2{
+    h2 {
         color: grey;
     }
-    .profile-cars{
-     grid-column: span 2;
-     text-align: center;
-     display: grid;
-     margin-top: 40px;
+    .profile-nav{
+        margin-top: 30px;
     }
-
-    .profile-router{
+    // a{
+    //     align-items: baseline;
+    // }
+    // .profile-cars {
+    //     grid-column: span 2;
+    //     text-align: left;
+    //     display: grid;
+    //     margin-top: 40px;
+    // }
+    .profile-info{
+        display: grid;
+        grid-column: span 2;
+        margin-top: 180px;
+    }
+    .profile-cars button{
+        padding: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        // border: unset;
+    }
+    .profile-router {
         font-size: 1.5rem;
         max-width: 500px;
         color: black;
-        box-shadow: inset 0 -1px 0 0 #dddde5;
         display: flex;
         flex-direction: row;
         align-items: baseline;
         justify-content: space-between;
         padding: 0 30px;
         margin-top: 40px;
-        
     }
-    .profile-router i{
-     font-size: 2rem;
+    .profile-router i {
+        font-size: 2rem;
     }
-    .profile-router:hover{
+    .profile-router:hover {
         cursor: pointer;
         color: gray;
-    }
-    .order-list{
-        box-shadow: inset 0 -1px 0 0 #dddde5;
     }
 }

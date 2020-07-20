@@ -43,6 +43,7 @@
             </div>
           </div>
           <div class="payment-details flex">
+            <h2>location: {{car.location.city}}</h2>
             <h1>Price: $ {{car.price}} / Day</h1>
 
             <span class="free-cancellation">
