@@ -1,28 +1,36 @@
 <template>
-   <section class="profile-cars">
+  <section class="profile-cars">
     <h1>Requests:</h1>
-    <!-- <div v-for="order in orders" :order="order" :key="order._id" class="order-list">
-        <router-link :to="'/car/details/'+order.carId" class="col">
-          <h2>owner: {{order.owner.fullName}}</h2>
-          <h2>Pickup date: {{order.pickupDate}}</h2>
-          <h2>Total price: {{order.price}}</h2>
-        </router-link>
-    </div> -->
+    <div v-for="request in requests" :request="request" :key="request._id" class="order-list">
+      <h3>From: {{request.buyer.fullName}}</h3>
+      <h3>Contact: {{request.buyer.email}}</h3>
+      <h3>Pickup date: {{request.pickupDate}}</h3>
+      <h3>Number of days: {{request.daysCount}}</h3>
+      <h3>Total sum: ${{request.price}}</h3>
+      <button>accept</button>
+      <button>decline</button>
+    </div>
   </section>
 </template>
 
 <script>
 import orderService from "../services/order-service.js";
 export default {
-//  created() {
-//     const userId = this.$route.params.id;
-//     orderService
-//       .getOrdersByOwnerId(userId)
-//       .then(orders => (this.orders = orders));  
-//   },
-}
+  props:{
+    info:{
+      type:Object
+    }
+  },
+  data() {
+    return {
+      requests: []
+    };
+  },
+  created() {
+    this.requests = this.info.requestedOrders;
+  },
+};
 </script>
 
 <style>
-
 </style>

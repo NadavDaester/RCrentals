@@ -8,7 +8,6 @@ export const orderStore = {
         orders(state) {
             return state.orders;
         },
-
     },
     mutations: {
         setOrders(state, { orders }) {

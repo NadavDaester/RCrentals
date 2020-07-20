@@ -14,11 +14,25 @@
     .profile-nav{
         margin-top: 30px;
     }
-    .profile-cars {
-        grid-column: span 2;
-        text-align: center;
+    // a{
+    //     align-items: baseline;
+    // }
+    // .profile-cars {
+    //     grid-column: span 2;
+    //     text-align: left;
+    //     display: grid;
+    //     margin-top: 40px;
+    // }
+    .profile-info{
         display: grid;
-        margin-top: 40px;
+        grid-column: span 2;
+        margin-top: 180px;
+    }
+    .profile-cars button{
+        padding: 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        // border: unset;
     }
     .profile-router {
         font-size: 1.5rem;
